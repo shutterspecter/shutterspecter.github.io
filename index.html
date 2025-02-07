@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Akira-Inspired One Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Futuristic Link Page</title>
 
-  <!-- Google Fonts (Example: Press Start 2P or Roboto Condensed for retro/futuristic vibe) -->
+  <!-- Google Font (Orbitron for a sci-fi vibe) -->
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link
-    href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Condensed:wght@300;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"
     rel="stylesheet"
   />
 
@@ -16,62 +16,37 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Navigation -->
-  <nav>
-    <div class="logo">Neo-Tokyo</div>
-    <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
-      <!-- Contact section previously removed -->
-    </ul>
-    <!-- Menu toggle (visible on mobile) -->
-    <div class="menu-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </nav>
+  <div class="container">
+    <!-- Hero / Header -->
+    <header class="hero">
+      <h1 class="hero-title">Your Name</h1>
+      <p class="hero-tagline">Gamer. Creator. Futurist.</p>
+    </header>
 
-  <!-- Hero Section -->
-  <header id="home" class="hero-section">
-    <div class="hero-content">
-      <h1 class="neon-text">Welcome to Neo-Tokyo</h1>
-      <p class="hero-subtitle">Where the future collides with chaos</p>
-      <a href="#about" class="btn">Learn More</a>
-    </div>
-  </header>
-
-  <!-- About Section -->
-  <section id="about" class="section">
-    <h2 class="section-title">About Me</h2>
-    <p class="section-text">
-      I'm a developer who fuses cutting-edge technology with the intense
-      visuals of classic anime. Inspired by the world of Akira, I bring gritty,
-      neon-soaked energy to modern web experiences.
-    </p>
-  </section>
-
-  <!-- Services Section -->
-  <section id="services" class="section">
-    <h2 class="section-title">Services</h2>
-    <div class="service">
-      <h3>Web Design</h3>
+    <!-- About Section -->
+    <section class="about">
+      <h2>About Me</h2>
       <p>
-        Crafting dynamic, electrifying websites that channel the
-        futuristic rebellion of Neo-Tokyo.
+        I’m a passionate web creator inspired by futuristic aesthetics and
+        sci-fi gaming. Welcome to my digital hub—explore my work and connect
+        with me across social platforms.
       </p>
-    </div>
-    <div class="service">
-      <h3>Development</h3>
-      <p>
-        Building robust, high-performance applications that capture the
-        relentless pulse of a cyberpunk city.
-      </p>
-    </div>
-  </section>
+    </section>
 
-  <!-- Scripts -->
+    <!-- Links Section -->
+    <section class="links-section">
+      <h2>Links</h2>
+      <div class="links">
+        <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://twitter.com"   target="_blank" rel="noopener">Twitter</a>
+        <a href="https://youtube.com"   target="_blank" rel="noopener">YouTube</a>
+        <a href="https://twitch.tv"     target="_blank" rel="noopener">Twitch</a>
+        <!-- Add as many or as few links as you want -->
+      </div>
+    </section>
+  </div>
+
+  <!-- Optionally, you can add a script if you want interactive effects -->
   <script src="script.js"></script>
 </body>
 </html>

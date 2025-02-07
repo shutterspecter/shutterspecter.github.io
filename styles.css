@@ -1,6 +1,6 @@
 /* 
   =========================================
-  Global Reset & Font
+  Global Styles
   =========================================
 */
 * {
@@ -9,243 +9,125 @@
   box-sizing: border-box;
 }
 
-/* 
-  Using two fonts:
-    - "Press Start 2P" for a retro, arcadey style
-    - "Roboto Condensed" for readability
-*/
 body {
-  font-family: 'Roboto Condensed', sans-serif;
-  background: #0a0a0a; /* Deep black background to highlight red neon */
-  color: #eeeeee;
-  scroll-behavior: smooth;
-}
-
-/* 
-  =========================================
-  Navigation
-  =========================================
-*/
-nav {
+  font-family: 'Orbitron', sans-serif;
+  background: #0b0c10; /* Dark futuristic background */
+  color: #c5c6c7;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  background-color: rgba(10, 10, 10, 0.9); /* Slightly transparent */
-  backdrop-filter: blur(10px);
-  z-index: 999;
-  border-bottom: 1px solid #222222;
-}
-
-nav .logo {
-  font-size: 1.2rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-family: 'Press Start 2P', cursive;
-  color: #ff3530; /* Vibrant red reminiscent of Akira’s visuals */
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-}
-
-.nav-links li {
-  margin: 0 15px;
-  position: relative;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: #eeeeee;
-  transition: color 0.3s;
-  font-weight: 500;
-}
-
-.nav-links a:hover {
-  color: #ff3530;
-  text-shadow: 0 0 5px #ff3530, 0 0 10px #ff3530;
-}
-
-/* Menu toggle for mobile */
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-}
-
-.menu-toggle span {
-  height: 3px;
-  width: 25px;
-  background: #eee;
-  margin: 4px 0;
-  transition: 0.4s;
-}
-
-/* 
-  =========================================
-  Hero Section
-  =========================================
-*/
-.hero-section {
-  height: 100vh;
-  display: flex;
-  align-items: center;
   justify-content: center;
-  text-align: center;
-  position: relative;
-  background:
-    /* Dark city background reminiscent of Akira’s Neo-Tokyo */
-    linear-gradient(
-      rgba(10, 10, 10, 0.7),
-      rgba(10, 10, 10, 0.9)
-    ),
-    url('https://via.placeholder.com/1920x1080/000000/FFFFFF?text=Neo-Tokyo+City+Background');
-  background-size: cover;
-  background-position: center;
-  padding: 20px;
-}
-
-.hero-content {
-  max-width: 800px;
-}
-
-.neon-text {
-  font-family: 'Press Start 2P', cursive;
-  font-size: 2.5rem;
-  color: #ff3530;
-  text-shadow: 
-      0 0 5px #ff3530,
-      0 0 10px #ff3530,
-      0 0 20px #ff3530;
-}
-
-.hero-subtitle {
-  font-size: 1rem;
-  margin-top: 10px;
-  color: #cccccc;
-}
-
-.btn {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 12px 24px;
-  background: #ff3530;
-  color: #0a0a0a;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 4px;
-  transition: all 0.3s ease;
-  letter-spacing: 1px;
-  font-family: 'Press Start 2P', cursive;
-}
-
-.btn:hover {
-  background: #0a0a0a;
-  color: #ff3530;
-  box-shadow: 0 0 10px #ff3530;
-  border: 2px solid #ff3530;
+  align-items: center;
+  min-height: 100vh;
 }
 
 /* 
   =========================================
-  Sections
+  Container
   =========================================
 */
-.section {
-  padding: 80px 20px;
+.container {
+  width: 90%;
+  max-width: 600px;
+  margin: 40px auto;
   text-align: center;
-  max-width: 1200px;
-  margin: 0 auto;
+  background: rgba(11, 12, 16, 0.85);
+  border: 1px solid #1f2833;
+  box-shadow: 0 0 20px rgba(0, 255, 200, 0.1);
+  padding: 40px 20px;
+  border-radius: 10px;
 }
 
-.section-title {
-  font-family: 'Press Start 2P', cursive;
-  font-size: 1.8rem;
+/* 
+  =========================================
+  Hero / Header
+  =========================================
+*/
+.hero {
   margin-bottom: 30px;
-  text-transform: uppercase;
-  text-shadow: 0 0 5px #ff3530, 0 0 10px #ff3530;
-  letter-spacing: 2px;
-  color: #ff3530;
 }
 
-.section-text {
-  line-height: 1.6;
-  max-width: 700px;
-  margin: 0 auto;
-  color: #cccccc;
-  font-size: 1rem;
-}
-
-/* Services */
-.service {
-  background: rgba(255, 53, 48, 0.1);
-  border: 1px solid #ff3530;
-  box-shadow: 0 0 10px rgba(255, 53, 48, 0.3);
-  border-radius: 5px;
-  margin: 20px auto;
-  padding: 20px;
-  max-width: 500px;
-  transition: transform 0.3s ease;
-}
-
-.service:hover {
-  transform: translateY(-5px);
-}
-
-.service h3 {
+.hero-title {
+  font-size: 2rem;
+  color: #66fcf1;  /* Neon-cyan accent */
+  text-shadow: 0 0 5px #66fcf1, 0 0 15px #66fcf1;
   margin-bottom: 10px;
-  color: #ff3530;
-  text-shadow: 0 0 5px #ff3530;
-  font-family: 'Press Start 2P', cursive;
-  font-size: 1.2rem;
 }
 
-.service p {
-  color: #cccccc;
-  font-size: 0.9rem;
+.hero-tagline {
+  font-size: 1.1rem;
+  color: #c5c6c7;
 }
 
 /* 
   =========================================
-  Responsive
+  About Section
   =========================================
 */
-@media (max-width: 768px) {
-  .nav-links {
-    position: absolute;
-    top: 70px;
-    right: 0;
-    background: rgba(10, 10, 10, 0.95);
-    flex-direction: column;
-    width: 200px;
-    transform: translateX(100%);
-    transition: transform 0.4s ease-in-out;
-    border-left: 1px solid #222;
-    display: none; /* Hidden by default */
-  }
-  .nav-links li {
-    margin: 20px 0;
-  }
-  .menu-toggle {
-    display: flex;
-  }
-  .logo {
-    font-size: 1rem;
-  }
-  .neon-text {
-    font-size: 2rem;
-  }
+.about {
+  margin-bottom: 30px;
 }
 
+.about h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #66fcf1;
+  text-shadow: 0 0 5px #66fcf1;
+}
+
+.about p {
+  line-height: 1.6;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* 
+  =========================================
+  Links Section
+  =========================================
+*/
+.links-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #66fcf1;
+  text-shadow: 0 0 5px #66fcf1;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.links a {
+  display: block;
+  width: 80%;
+  max-width: 300px;
+  margin: 10px 0;
+  padding: 12px;
+  text-decoration: none;
+  color: #66fcf1;
+  border: 2px solid #66fcf1;
+  border-radius: 4px;
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+
+.links a:hover {
+  background: #66fcf1;
+  color: #0b0c10;
+  box-shadow: 0 0 10px #66fcf1;
+}
+
+/* 
+  =========================================
+  Responsive (Optional)
+  =========================================
+*/
 @media (max-width: 480px) {
-  .hero-section {
-    padding: 40px 20px;
-  }
-  .neon-text {
+  .hero-title {
     font-size: 1.6rem;
+  }
+  .links a {
+    font-size: 1rem;
   }
 }
