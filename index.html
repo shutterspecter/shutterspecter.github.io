@@ -1,61 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My One Page Website</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Retro-Futuristic One Page</title>
+
+  <!-- Google Fonts (Example: Orbitron for a futuristic vibe) -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">MyBrand</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <!-- Menu toggle (visible on mobile) -->
+    <div class="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
 
-    <!-- Navigation -->
-    <nav>
-        <div class="logo">MyBrand</div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+  <!-- Hero Section -->
+  <header id="home" class="hero-section">
+    <div class="hero-content">
+      <h1 class="neon-text">Welcome to the Future</h1>
+      <p class="hero-subtitle">Retro vibes, modern approach</p>
+      <a href="#about" class="btn">Learn More</a>
+    </div>
+  </header>
 
-    <!-- Hero Section -->
-    <header id="home">
-        <h1>Welcome to My One Page Website</h1>
-        <p>Clean, minimal, and modern design</p>
-        <a href="#about" class="btn">Learn More</a>
-    </header>
+  <!-- About Section -->
+  <section id="about" class="section">
+    <h2 class="section-title">About Me</h2>
+    <p class="section-text">
+      I am a web developer passionate about building visually stunning and
+      futuristic websites. I combine modern tools with retro aesthetic
+      influences for a unique digital experience.
+    </p>
+  </section>
 
-    <!-- About Section -->
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I am a web developer passionate about building beautiful websites.</p>
-    </section>
+  <!-- Services Section -->
+  <section id="services" class="section">
+    <h2 class="section-title">Services</h2>
+    <div class="service">
+      <h3>Web Design</h3>
+      <p>Creating vibrant, user-friendly websites with a futuristic twist.</p>
+    </div>
+    <div class="service">
+      <h3>Development</h3>
+      <p>Building modern, high-performance web applications that feel ahead of their time.</p>
+    </div>
+  </section>
 
-    <!-- Services Section -->
-    <section id="services">
-        <h2>Services</h2>
-        <div class="service">
-            <h3>Web Design</h3>
-            <p>Creating stunning, user-friendly websites.</p>
-        </div>
-        <div class="service">
-            <h3>Development</h3>
-            <p>Building modern, high-performance web applications.</p>
-        </div>
-    </section>
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <h2 class="section-title">Contact</h2>
+    <form id="contact-form">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Contact</h2>
-        <form id="contact-form">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-    </section>
-
-    <script src="script.js"></script>
+  <!-- Scripts -->
+  <script src="script.js"></script>
 </body>
 </html>
