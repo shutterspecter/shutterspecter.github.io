@@ -1,26 +1,24 @@
 /* 
   =========================================
-  Global Styles
+  Global Reset & Body
   =========================================
 */
-
-/* Reset-ish */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Body with a loud, bright gradient reminiscent of old Flash sites */
 body {
-  /* Vertical gradient or angled for that typical "loud" effect */
-  background: linear-gradient(45deg, #FF0066, #FF9900);
-  font-family: Impact, "Trebuchet MS", sans-serif;
-  color: #FFFFFF;
+  font-family: 'Exo 2', sans-serif;
+  /* A Blade Runner-ish dark city vibe */
+  background: #0f0f0f;
+  color: #eee;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start; /* Start so page can scroll if needed */
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 /* 
@@ -31,13 +29,16 @@ body {
 .container {
   width: 90%;
   max-width: 600px;
-  background: rgba(255, 255, 255, 0.1);
-  /* Use a "bevelled" or "inset" border reminiscent of early 2000s designs */
-  border: 4px double #FFF;
-  border-radius: 10px;
-  padding: 30px 20px;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  margin: 40px auto;
   text-align: center;
+  /* Slightly transparent background for layering illusions */
+  background: rgba(15, 15, 15, 0.7);
+  border: 1px solid #222;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
+  position: relative;
+  z-index: 1;
 }
 
 /* 
@@ -46,23 +47,42 @@ body {
   =========================================
 */
 .hero {
-  margin-bottom: 20px;
+  position: relative;
+  margin-bottom: 30px;
+  overflow: hidden; /* So overlay images don’t spill out */
+  border-radius: 10px;
 }
 
-/* Big, bold "Impact" style for a strong retro presence */
+.hero-overlay {
+  /* Could be a cityscape image, glitch pattern, or synthwave grid */
+  background: linear-gradient(
+      rgba(15,15,15,0.5),
+      rgba(15,15,15,0.8)
+    ),
+    url('https://via.placeholder.com/1200x600/000000/FFFFFF?text=Cyberpunk+City+Background');
+  background-size: cover;
+  background-position: center;
+  height: 200px;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 .hero-title {
-  font-size: 3rem;
-  color: #FFEC00; /* Bright yellow text for that Flash look */
-  text-shadow: 
-    2px 2px 0 #000, /* Hard shadow for that blocky effect */
-    3px 3px 5px rgba(0, 0, 0, 0.3);
-  margin-bottom: 10px;
+  font-size: 2.4rem;
+  color: #0ff;
+  text-shadow: 0 0 5px #0ff, 0 0 10px #0ff;
+  margin-top: 60px; /* Spacing so text sits in the middle of the overlay */
 }
 
-/* Tagline with a slightly smaller font */
 .hero-tagline {
-  font-size: 1.2rem;
-  color: #FFFFFF;
+  font-size: 1rem;
+  margin-top: 10px;
+  color: #ff0090; /* Contrasting neon pink/purple */
+  text-shadow: 0 0 5px #ff0090, 0 0 10px #ff0090;
+  margin-bottom: 20px;
 }
 
 /* 
@@ -75,19 +95,18 @@ body {
 }
 
 .about h2 {
-  font-size: 1.8rem;
-  color: #00FFCC; 
-  text-shadow: 2px 2px #000;
-  margin-bottom: 10px;
+  font-size: 1.6rem;
+  color: #0ff;
+  text-shadow: 0 0 5px #0ff;
+  margin-bottom: 15px;
 }
 
-/* Slightly narrower body text for that busy late 90s style */
 .about p {
-  font-size: 1rem;
-  line-height: 1.4;
-  max-width: 480px;
+  max-width: 500px;
   margin: 0 auto;
-  color: #FFEDEE;
+  line-height: 1.6;
+  color: #ccc;
+  font-size: 1rem;
 }
 
 /* 
@@ -100,9 +119,9 @@ body {
 }
 
 .links-section h2 {
-  font-size: 1.8rem;
-  color: #00FFCC;
-  text-shadow: 2px 2px #000;
+  font-size: 1.6rem;
+  color: #0ff;
+  text-shadow: 0 0 5px #0ff;
   margin-bottom: 20px;
 }
 
@@ -115,39 +134,44 @@ body {
 .links a {
   display: block;
   width: 80%;
-  max-width: 300px;
+  max-width: 280px;
   margin: 10px 0;
   padding: 14px;
   text-decoration: none;
   text-transform: uppercase;
+  letter-spacing: 1px;
   font-weight: bold;
-  color: #000;
-  background: #FFEC00;
-  border: 2px solid #000;
+  color: #fff;
+  background: #0f0f0f;
+  border: 2px solid #0ff;
   border-radius: 4px;
-  font-size: 1rem;
-  /* "Over the top" hover state is part of the nostalgia */
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: 0.3s ease;
+  box-shadow: 0 0 10px rgba(0,255,255,0.3), inset 0 0 20px rgba(0,255,255,0.1);
 }
 
+/* Neon hover with slight glitchy transform */
 .links a:hover {
-  transform: translate(-3px, -3px);
-  box-shadow: 3px 3px 0 #000, 5px 5px 10px rgba(0, 0, 0, 0.2);
+  background: #0ff;
+  color: #0f0f0f;
+  box-shadow: 0 0 15px #0ff, inset 0 0 10px #0ff;
+  transform: translateY(-3px) skewX(-3deg);
 }
 
 /* 
   =========================================
-  Responsive (Optional)
+  Responsiveness
   =========================================
 */
 @media (max-width: 480px) {
+  .hero-overlay {
+    height: 150px;
+  }
   .hero-title {
-    font-size: 2.2rem;
+    font-size: 2rem;
+    margin-top: 40px;
   }
   .hero-tagline {
-    font-size: 1rem;
-  }
-  .links a {
     font-size: 0.9rem;
+    margin-bottom: 15px;
   }
 }
