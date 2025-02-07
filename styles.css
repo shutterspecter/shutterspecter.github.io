@@ -3,16 +3,20 @@
   Global Styles
   =========================================
 */
+
+/* Reset-ish */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Body with a loud, bright gradient reminiscent of old Flash sites */
 body {
-  font-family: 'Orbitron', sans-serif;
-  background: #0b0c10; /* Dark futuristic background */
-  color: #c5c6c7;
+  /* Vertical gradient or angled for that typical "loud" effect */
+  background: linear-gradient(45deg, #FF0066, #FF9900);
+  font-family: Impact, "Trebuchet MS", sans-serif;
+  color: #FFFFFF;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,13 +31,13 @@ body {
 .container {
   width: 90%;
   max-width: 600px;
-  margin: 40px auto;
-  text-align: center;
-  background: rgba(11, 12, 16, 0.85);
-  border: 1px solid #1f2833;
-  box-shadow: 0 0 20px rgba(0, 255, 200, 0.1);
-  padding: 40px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  /* Use a "bevelled" or "inset" border reminiscent of early 2000s designs */
+  border: 4px double #FFF;
   border-radius: 10px;
+  padding: 30px 20px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  text-align: center;
 }
 
 /* 
@@ -42,19 +46,23 @@ body {
   =========================================
 */
 .hero {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
+/* Big, bold "Impact" style for a strong retro presence */
 .hero-title {
-  font-size: 2rem;
-  color: #66fcf1;  /* Neon-cyan accent */
-  text-shadow: 0 0 5px #66fcf1, 0 0 15px #66fcf1;
+  font-size: 3rem;
+  color: #FFEC00; /* Bright yellow text for that Flash look */
+  text-shadow: 
+    2px 2px 0 #000, /* Hard shadow for that blocky effect */
+    3px 3px 5px rgba(0, 0, 0, 0.3);
   margin-bottom: 10px;
 }
 
+/* Tagline with a slightly smaller font */
 .hero-tagline {
-  font-size: 1.1rem;
-  color: #c5c6c7;
+  font-size: 1.2rem;
+  color: #FFFFFF;
 }
 
 /* 
@@ -67,16 +75,19 @@ body {
 }
 
 .about h2 {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
+  color: #00FFCC; 
+  text-shadow: 2px 2px #000;
   margin-bottom: 10px;
-  color: #66fcf1;
-  text-shadow: 0 0 5px #66fcf1;
 }
 
+/* Slightly narrower body text for that busy late 90s style */
 .about p {
-  line-height: 1.6;
-  max-width: 500px;
+  font-size: 1rem;
+  line-height: 1.4;
+  max-width: 480px;
   margin: 0 auto;
+  color: #FFEDEE;
 }
 
 /* 
@@ -84,11 +95,15 @@ body {
   Links Section
   =========================================
 */
-.links-section h2 {
-  font-size: 1.5rem;
+.links-section {
   margin-bottom: 20px;
-  color: #66fcf1;
-  text-shadow: 0 0 5px #66fcf1;
+}
+
+.links-section h2 {
+  font-size: 1.8rem;
+  color: #00FFCC;
+  text-shadow: 2px 2px #000;
+  margin-bottom: 20px;
 }
 
 .links {
@@ -102,20 +117,22 @@ body {
   width: 80%;
   max-width: 300px;
   margin: 10px 0;
-  padding: 12px;
+  padding: 14px;
   text-decoration: none;
-  color: #66fcf1;
-  border: 2px solid #66fcf1;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #000;
+  background: #FFEC00;
+  border: 2px solid #000;
   border-radius: 4px;
-  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
-  font-size: 1.1rem;
-  letter-spacing: 1px;
+  font-size: 1rem;
+  /* "Over the top" hover state is part of the nostalgia */
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .links a:hover {
-  background: #66fcf1;
-  color: #0b0c10;
-  box-shadow: 0 0 10px #66fcf1;
+  transform: translate(-3px, -3px);
+  box-shadow: 3px 3px 0 #000, 5px 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* 
@@ -125,9 +142,12 @@ body {
 */
 @media (max-width: 480px) {
   .hero-title {
-    font-size: 1.6rem;
+    font-size: 2.2rem;
+  }
+  .hero-tagline {
+    font-size: 1rem;
   }
   .links a {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 }
