@@ -9,9 +9,14 @@
   box-sizing: border-box;
 }
 
+/* 
+  Using two fonts:
+    - "Press Start 2P" for a retro, arcadey style
+    - "Roboto Condensed" for readability
+*/
 body {
-  font-family: 'Orbitron', sans-serif;
-  background: #0a0a0a; /* Dark background for neon contrast */
+  font-family: 'Roboto Condensed', sans-serif;
+  background: #0a0a0a; /* Deep black background to highlight red neon */
   color: #eeeeee;
   scroll-behavior: smooth;
 }
@@ -29,17 +34,18 @@ nav {
   position: fixed;
   width: 100%;
   top: 0;
-  background-color: rgba(10, 10, 10, 0.9); /* Slightly transparent dark */
-  backdrop-filter: blur(10px); /* Modern glassmorphism vibe */
+  background-color: rgba(10, 10, 10, 0.9); /* Slightly transparent */
+  backdrop-filter: blur(10px);
   z-index: 999;
   border-bottom: 1px solid #222222;
 }
 
 nav .logo {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: #80ffea; /* Neon accent color */
+  font-family: 'Press Start 2P', cursive;
+  color: #ff3530; /* Vibrant red reminiscent of Akira’s visuals */
 }
 
 .nav-links {
@@ -60,8 +66,8 @@ nav .logo {
 }
 
 .nav-links a:hover {
-  color: #80ffea;
-  text-shadow: 0 0 5px #80ffea, 0 0 10px #80ffea;
+  color: #ff3530;
+  text-shadow: 0 0 5px #ff3530, 0 0 10px #ff3530;
 }
 
 /* Menu toggle for mobile */
@@ -91,13 +97,13 @@ nav .logo {
   justify-content: center;
   text-align: center;
   position: relative;
-  /* Retro-Futuristic Gradient + placeholder background image */
-  background: radial-gradient(
-      circle at 50% 50%,
-      rgba(128, 255, 234, 0.15),
-      rgba(10, 10, 10, 1)
+  background:
+    /* Dark city background reminiscent of Akira’s Neo-Tokyo */
+    linear-gradient(
+      rgba(10, 10, 10, 0.7),
+      rgba(10, 10, 10, 0.9)
     ),
-    url('https://via.placeholder.com/1920x1080/000000/FFFFFF?text=Retro+Futuristic+Background');
+    url('https://via.placeholder.com/1920x1080/000000/FFFFFF?text=Neo-Tokyo+City+Background');
   background-size: cover;
   background-position: center;
   padding: 20px;
@@ -108,37 +114,40 @@ nav .logo {
 }
 
 .neon-text {
-  font-size: 3rem;
-  color: #80ffea;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 2.5rem;
+  color: #ff3530;
   text-shadow: 
-      0 0 5px #80ffea,
-      0 0 10px #80ffea,
-      0 0 20px #80ffea;
+      0 0 5px #ff3530,
+      0 0 10px #ff3530,
+      0 0 20px #ff3530;
 }
 
 .hero-subtitle {
-  font-size: 1.2rem;
-  color: #eeeeee;
+  font-size: 1rem;
   margin-top: 10px;
+  color: #cccccc;
 }
 
 .btn {
   display: inline-block;
   margin-top: 20px;
   padding: 12px 24px;
-  background: #80ffea;
+  background: #ff3530;
   color: #0a0a0a;
   text-decoration: none;
   font-weight: bold;
   border-radius: 4px;
   transition: all 0.3s ease;
+  letter-spacing: 1px;
+  font-family: 'Press Start 2P', cursive;
 }
 
 .btn:hover {
   background: #0a0a0a;
-  color: #80ffea;
-  box-shadow: 0 0 10px #80ffea;
-  border: 2px solid #80ffea;
+  color: #ff3530;
+  box-shadow: 0 0 10px #ff3530;
+  border: 2px solid #ff3530;
 }
 
 /* 
@@ -154,12 +163,13 @@ nav .logo {
 }
 
 .section-title {
-  font-size: 2rem;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.8rem;
   margin-bottom: 30px;
   text-transform: uppercase;
-  text-shadow: 0 0 5px #80ffea, 0 0 10px #80ffea;
+  text-shadow: 0 0 5px #ff3530, 0 0 10px #ff3530;
   letter-spacing: 2px;
-  color: #80ffea;
+  color: #ff3530;
 }
 
 .section-text {
@@ -167,13 +177,14 @@ nav .logo {
   max-width: 700px;
   margin: 0 auto;
   color: #cccccc;
+  font-size: 1rem;
 }
 
 /* Services */
 .service {
-  background: rgba(128, 255, 234, 0.1);
-  border: 1px solid #80ffea;
-  box-shadow: 0 0 10px rgba(128, 255, 234, 0.3);
+  background: rgba(255, 53, 48, 0.1);
+  border: 1px solid #ff3530;
+  box-shadow: 0 0 10px rgba(255, 53, 48, 0.3);
   border-radius: 5px;
   margin: 20px auto;
   padding: 20px;
@@ -187,20 +198,16 @@ nav .logo {
 
 .service h3 {
   margin-bottom: 10px;
-  color: #80ffea;
-  text-shadow: 0 0 5px #80ffea;
+  color: #ff3530;
+  text-shadow: 0 0 5px #ff3530;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.2rem;
 }
 
 .service p {
   color: #cccccc;
+  font-size: 0.9rem;
 }
-
-/*
-  =========================================
-  Contact Form (REMOVED)
-  =========================================
-  (No longer needed since the Contact section is removed)
-*/
 
 /* 
   =========================================
@@ -226,6 +233,12 @@ nav .logo {
   .menu-toggle {
     display: flex;
   }
+  .logo {
+    font-size: 1rem;
+  }
+  .neon-text {
+    font-size: 2rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -233,6 +246,6 @@ nav .logo {
     padding: 40px 20px;
   }
   .neon-text {
-    font-size: 2.2rem;
+    font-size: 1.6rem;
   }
 }
