@@ -3,53 +3,54 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Socials Link Page</title>
-
-  <!-- Google Font: Exo 2 (futuristic), or Orbitron, or any sci-fi font -->
+  <title>shutterspecter | Digital Presence</title>
   <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&display=swap"
-    rel="stylesheet"
-  />
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div id="canvas-container"></div>
+  
   <div class="container">
-    <!-- Hero / Header -->
     <header class="hero">
-      <!-- Optional background overlay for a neon vibe -->
-      <div class="hero-overlay"></div>
       <h1 class="hero-title">shutterspecter</h1>
       <p class="hero-tagline">Multifaceted Artist • Tech Enthusiast • Free Spirit</p>
     </header>
 
-    <!-- About Section -->
     <section class="about">
       <h2>About Me</h2>
-      <p>
-        Hello there! Welcome to my little corner of internet. 
-        I'm a multifaceted artist and educator, specializing in filmmaking, video editing, motion design, and photography.
-        If you are curious what I create, check the below links.
-      </p>
+      <p>Hello there! Welcome to my little corner of the internet. I'm a multifaceted artist and educator, specializing in filmmaking, video editing, motion design, and photography. If you are curious what I create, check the links below.</p>
     </section>
 
-    <!-- Links Section -->
-    <section class="links-section">
-      <h2>My Links</h2>
-      <div class="links">
-        <a href="https://ko-fi.com/shutterspecter/shop"   target="_blank" rel="noopener">FREE & Paid Digital Assets</a>
-        <a href="https://www.youtube.com/@shutterspecter"   target="_blank" rel="noopener">Video Editing Tutorials</a>
-        <a href="https://www.youtube.com/@SolaceNexus"     target="_blank" rel="noopener">Gaming Content</a>
-        <a href="https://www.youtube.com/@origoflow"     target="_blank" rel="noopener">Vlog Channel</a>
-        <a href="https://www.instagram.com/shutterspecter/" target="_blank" rel="noopener">My Photography</a>
-        <a href="https://www.instagram.com/the3dspecter/"   target="_blank" rel="noopener">My 3D</a>
-      </div>
-    </section>
+    <div class="links">
+      <a href="https://ko-fi.com/shutterspecter/shop" class="link-card" target="_blank" rel="noopener">
+        <span class="link-title">FREE & Paid Digital Assets</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a href="https://www.youtube.com/@shutterspecter" class="link-card" target="_blank" rel="noopener">
+        <span class="link-title">Video Editing Tutorials</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a href="https://www.youtube.com/@SolaceNexus" class="link-card" target="_blank" rel="noopener">
+        <span class="link-title">Gaming Content</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a href="https://www.youtube.com/@origoflow" class="link-card" target="_blank" rel="noopener">
+        <span class="link-title">Vlog Channel</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a href="https://www.instagram.com/shutterspecter/" class="link-card" target="_blank" rel="noopener">
+        <span class="link-title">My Photography</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a href="https://www.instagram.com/the3dspecter/" class="link-card" target="_blank" rel="noopener">
+        <span class="link-title">My 3D</span>
+        <span class="link-arrow">→</span>
+      </a>
+    </div>
   </div>
 
-  <!-- Optional JS for additional interactivity -->
   <script src="script.js"></script>
 </body>
 </html>

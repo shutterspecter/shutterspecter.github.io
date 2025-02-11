@@ -1,177 +1,212 @@
-/* 
-  =========================================
-  Global Reset & Body
-  =========================================
-*/
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+:root {
+  --neon-blue: #0ff;
+  --neon-pink: #ff2d55;
+  --dark-bg: #080808;
+  --darker-bg: #050505;
+}
+
 body {
-  font-family: 'Exo 2', sans-serif;
-  /* A Blade Runner-ish dark city vibe */
-  background: #0f0f0f;
+  font-family: 'Share Tech Mono', monospace;
+  background: var(--dark-bg);
   color: #eee;
-  display: flex;
-  justify-content: center;
-  align-items: start; /* Start so page can scroll if needed */
   min-height: 100vh;
   overflow-x: hidden;
 }
 
-/* 
-  =========================================
-  Container
-  =========================================
-*/
+#canvas-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  opacity: 0.3;
+}
+
 .container {
+  position: relative;
+  z-index: 1;
   width: 90%;
   max-width: 600px;
   margin: 40px auto;
-  text-align: center;
-  /* Slightly transparent background for layering illusions */
-  background: rgba(15, 15, 15, 0.7);
-  border: 1px solid #222;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
-  position: relative;
-  z-index: 1;
+  padding: 30px;
 }
 
-/* 
-  =========================================
-  Hero / Header
-  =========================================
-*/
 .hero {
+  text-align: center;
+  margin-bottom: 40px;
   position: relative;
-  margin-bottom: 30px;
-  overflow: hidden; /* So overlay images don’t spill out */
-  border-radius: 10px;
 }
 
-.hero-overlay {
-  /* Could be a cityscape image, glitch pattern, or synthwave grid */
-  background: linear-gradient(
-      rgba(15,15,15,0.5),
-      rgba(15,15,15,0.8)
-    ),
-    url('https://via.placeholder.com/1200x600/000000/FFFFFF?text=Cyberpunk+City+Background');
-  background-size: cover;
-  background-position: center;
-  height: 200px;
-  width: 100%;
-  z-index: -1;
+.hero::before {
+  content: "";
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 2px;
+  background: var(--neon-blue);
+  box-shadow: 0 0 10px var(--neon-blue);
 }
 
 .hero-title {
-  font-size: 2.4rem;
-  color: #0ff;
-  text-shadow: 0 0 5px #0ff, 0 0 10px #0ff;
-  margin-top: 60px; /* Spacing so text sits in the middle of the overlay */
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3rem;
+  color: var(--neon-blue);
+  text-shadow: 0 0 10px var(--neon-blue);
+  margin-bottom: 15px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
 }
 
 .hero-tagline {
+  color: var(--neon-pink);
+  text-shadow: 0 0 5px var(--neon-pink);
   font-size: 1rem;
-  margin-top: 10px;
-  color: #ff0090; /* Contrasting neon pink/purple */
-  text-shadow: 0 0 5px #ff0090, 0 0 10px #ff0090;
-  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease 0.2s forwards;
 }
 
-/* 
-  =========================================
-  About Section
-  =========================================
-*/
 .about {
-  margin-bottom: 30px;
+  background: rgba(8, 8, 8, 0.7);
+  border: 1px solid rgba(0, 255, 255, 0.1);
+  padding: 20px;
+  margin-bottom: 40px;
+  border-radius: 5px;
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease 0.4s forwards;
 }
 
 .about h2 {
-  font-size: 1.6rem;
-  color: #0ff;
-  text-shadow: 0 0 5px #0ff;
+  font-family: 'Orbitron', sans-serif;
+  color: var(--neon-blue);
   margin-bottom: 15px;
+  font-size: 1.5rem;
 }
 
 .about p {
-  max-width: 500px;
-  margin: 0 auto;
   line-height: 1.6;
   color: #ccc;
-  font-size: 1rem;
-}
-
-/* 
-  =========================================
-  Links Section
-  =========================================
-*/
-.links-section {
-  margin-bottom: 20px;
-}
-
-.links-section h2 {
-  font-size: 1.6rem;
-  color: #0ff;
-  text-shadow: 0 0 5px #0ff;
-  margin-bottom: 20px;
 }
 
 .links {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  gap: 15px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease 0.6s forwards;
 }
 
-.links a {
-  display: block;
-  width: 80%;
-  max-width: 280px;
-  margin: 10px 0;
-  padding: 14px;
+.link-card {
+  background: var(--darker-bg);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  padding: 20px;
+  border-radius: 5px;
   text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: bold;
   color: #fff;
-  background: #0f0f0f;
-  border: 2px solid #0ff;
-  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.link-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent, rgba(0, 255, 255, 0.1), transparent);
+  transform: translateX(-100%);
+  transition: 0.5s ease;
+}
+
+.link-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--neon-blue);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+}
+
+.link-card:hover::before {
+  transform: translateX(100%);
+}
+
+.link-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.link-arrow {
+  opacity: 0;
+  transform: translateX(-10px);
   transition: 0.3s ease;
-  box-shadow: 0 0 10px rgba(0,255,255,0.3), inset 0 0 20px rgba(0,255,255,0.1);
+  position: absolute;
+  right: 20px;
 }
 
-/* Neon hover with slight glitchy transform */
-.links a:hover {
-  background: #0ff;
-  color: #0f0f0f;
-  box-shadow: 0 0 15px #0ff, inset 0 0 10px #0ff;
-  transform: translateY(-3px) skewX(-3deg);
+.link-card:hover .link-arrow {
+  opacity: 1;
+  transform: translateX(0);
 }
 
-/* 
-  =========================================
-  Responsiveness
-  =========================================
-*/
-@media (max-width: 480px) {
-  .hero-overlay {
-    height: 150px;
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
+}
+
+@keyframes glitch {
+  0% {
+    clip-path: inset(50% 0 30% 0);
+    transform: translate(-5px, 5px);
+  }
+  20% {
+    clip-path: inset(15% 0 65% 0);
+    transform: translate(5px, -5px);
+  }
+  40% {
+    clip-path: inset(80% 0 5% 0);
+    transform: translate(-5px, 5px);
+  }
+  60% {
+    clip-path: inset(40% 0 43% 0);
+    transform: translate(5px, -5px);
+  }
+  80% {
+    clip-path: inset(25% 0 58% 0);
+    transform: translate(-5px, 5px);
+  }
+  100% {
+    clip-path: inset(50% 0 30% 0);
+    transform: translate(5px, -5px);
+  }
+}
+
+@media (max-width: 480px) {
   .hero-title {
     font-size: 2rem;
-    margin-top: 40px;
   }
-  .hero-tagline {
-    font-size: 0.9rem;
-    margin-bottom: 15px;
+  
+  .container {
+    margin: 20px auto;
+    padding: 20px;
   }
 }
