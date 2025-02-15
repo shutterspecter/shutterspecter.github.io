@@ -5,14 +5,19 @@ const renderer = new THREE.WebGLRenderer({ alpha: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.getElementById('canvas-container').appendChild(renderer.domElement);
 
-// Create a grid of points
+// Create a hexagonal grid
 const geometry = new THREE.BufferGeometry();
 const points = [];
 const size = 100;
-const spacing = 3;
+const hexHeight = Math.sqrt(3);
+const verticalSpacing = hexHeight * 2;
+const horizontalSpacing = 3;
 
-for (let x = -size; x <= size; x += spacing) {
-  for (let z = -size; z <= size; z += spacing) {
+for (let row = -size; row <= size; row++) {
+  const offset = (row % 2) * (horizontalSpacing / 2);
+  for (let col = -size; col <= size; col++) {
+    const x = (col * horizontalSpacing) + offset;
+    const z = row * (verticalSpacing / 2);
     points.push(x, 0, z);
   }
 }
@@ -20,8 +25,8 @@ for (let x = -size; x <= size; x += spacing) {
 geometry.setAttribute('position', new THREE.Float32BufferAttribute(points, 3));
 
 const material = new THREE.PointsMaterial({
-  color: 0x00ffff,
-  size: 0.1,
+  color: 0xff0055,
+  size: 0.15,
   transparent: true,
   opacity: 0.6
 });
@@ -33,28 +38,25 @@ camera.position.y = 30;
 camera.position.z = 50;
 camera.rotation.x = -0.6;
 
+let time = 0;
 function animate() {
   requestAnimationFrame(animate);
   
-  grid.rotation.y += 0.002;
+  time += 0.002;
   
+  // Rotate grid
+  grid.rotation.y = time * 0.2;
+  
+  // Wave animation
   const positions = grid.geometry.attributes.position.array;
-  const time = Date.now() * 0.001;
-  
   for (let i = 0; i < positions.length; i += 3) {
-    positions[i + 1] = Math.sin(time + positions[i] * 0.1) * 2;
+    const x = positions[i];
+    const z = positions[i + 2];
+    positions[i + 1] = Math.sin(time + (x * 0.1)) * Math.cos(time + (z * 0.1)) * 2;
   }
   
   grid.geometry.attributes.position.needsUpdate = true;
   
-  renderer.render(scene, camera);
+  // Color pulse
+  material.color.setHSL(Math.sin(time) * 0.1 + 0.5, 1, 0.5);
 }
-
-animate();
-
-// Handle window resize
-window.addEventListener('resize', () => {
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
-});
