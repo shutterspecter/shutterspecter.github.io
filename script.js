@@ -1,11 +1,11 @@
-// Three.js background animation
+/* Three.js background animation combining Spiderverse and Cyberpunk inspirations */
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 const renderer = new THREE.WebGLRenderer({ alpha: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.getElementById('canvas-container').appendChild(renderer.domElement);
 
-// Create a hexagonal grid
+// Create a hexagonal grid (modified to evoke a futuristic, web-like structure)
 const geometry = new THREE.BufferGeometry();
 const points = [];
 const size = 100;
@@ -44,10 +44,10 @@ function animate() {
   
   time += 0.002;
   
-  // Rotate grid
+  // Rotate grid for a dynamic effect
   grid.rotation.y = time * 0.2;
   
-  // Wave animation
+  // Wave animation evoking both the fluidity of Spiderverse visuals and cyberpunk motion
   const positions = grid.geometry.attributes.position.array;
   for (let i = 0; i < positions.length; i += 3) {
     const x = positions[i];
@@ -57,6 +57,10 @@ function animate() {
   
   grid.geometry.attributes.position.needsUpdate = true;
   
-  // Color pulse
+  // Color pulse blending neon cyberpunk hues with Spiderverse inspiration
   material.color.setHSL(Math.sin(time) * 0.1 + 0.5, 1, 0.5);
+  
+  renderer.render(scene, camera);
 }
+
+animate();
