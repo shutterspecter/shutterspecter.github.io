@@ -1,199 +1,111 @@
-:root {
-  /* Graffiti color palette */
-  --graffiti-yellow: #FFEB3B;
-  --graffiti-magenta: #E91E63;
-  --graffiti-cyan:    #00BCD4;
-  --concrete-bg:      #1f1f1f;
-  --accent-white:     #ffffff;
-}
-
+/* Reset default spacing */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Base body styling with an urban concrete wall background */
 body {
-  font-family: 'Share Tech Mono', monospace;
-  background: var(--concrete-bg);
-  color: var(--accent-white);
-  min-height: 100vh;
-  overflow-x: hidden;
+  background: #1a1a1a;
+  font-family: 'Press Start 2P', sans-serif;
+  color: #fff;
+  line-height: 1.6;
+  padding: 20px;
   position: relative;
-  /* Optionally, add a background image of a concrete wall or graffiti texture */
-  /* background: url('your-graffiti-texture.jpg') no-repeat center center fixed; */
 }
 
-.noise-overlay {
+/* Simulated concrete/graffiti wall texture overlay */
+body::before {
+  content: "";
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  /* Faint overlay to simulate wall texture */
-  background: rgba(0, 0, 0, 0.1);
-  pointer-events: none;
-  z-index: 1000;
-}
-
-#canvas-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 0;
+  background: url('https://i.imgur.com/3j0qRjv.jpg') no-repeat center center/cover;
   opacity: 0.15;
+  z-index: -1;
 }
 
-.container {
-  position: relative;
-  z-index: 1;
-  width: 90%;
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 30px;
-}
-
-/* Header and Graffiti Title Effects */
-.hero {
+/* Header styling */
+header {
   text-align: center;
-  margin-bottom: 60px;
-  position: relative;
+  margin-bottom: 40px;
 }
 
-.graffiti-title {
-  position: relative;
-  display: inline-block;
-}
-
-.hero-title {
+.logo h1 {
   font-family: 'Bangers', cursive;
   font-size: 4rem;
-  color: var(--graffiti-magenta);
-  text-shadow: 2px 2px var(--graffiti-cyan), -2px -2px var(--graffiti-yellow);
-  position: relative;
+  color: #ff0055;
+  text-shadow: 4px 4px #00ffff;
 }
 
-/* Drip effect below the title */
-.drip {
-  width: 60%;
-  height: 8px;
-  background: var(--graffiti-yellow);
-  margin: 10px auto 0;
-  border-radius: 50% 50% 0 0;
-  box-shadow: 0 4px 0 var(--graffiti-magenta);
+.tagline {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  color: #00ffff;
 }
 
-.hero-tagline {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 20px;
+/* Main container styling */
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(0, 0, 0, 0.75);
+  padding: 30px;
+  border: 4px solid #ffeb3b;
+  border-radius: 10px;
 }
 
-.tag-item {
-  background: linear-gradient(45deg, var(--graffiti-magenta), var(--graffiti-yellow));
-  padding: 5px 15px;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  color: var(--accent-white);
-  text-shadow: 1px 1px var(--graffiti-cyan);
-}
-
-/* Section Titles styled like spray-painted tags */
-.section-title {
+/* Section headings styled in a graffiti tag style */
+h2 {
   font-family: 'Bangers', cursive;
   font-size: 2.5rem;
-  color: var(--graffiti-cyan);
+  text-align: center;
   margin-bottom: 20px;
-  position: relative;
-  text-shadow: 3px 3px var(--graffiti-magenta);
+  color: #ffeb3b;
+  text-shadow: 3px 3px #e91e63;
 }
 
-/* Mural Box for the About section */
-.mural-box {
-  background: rgba(0, 0, 0, 0.4);
-  padding: 20px;
-  border: 2px dashed var(--graffiti-yellow);
-  border-radius: 10px;
-  line-height: 1.6;
-  position: relative;
-  overflow: hidden;
+/* About section text */
+.about p {
+  font-family: 'Press Start 2P', sans-serif;
+  font-size: 1rem;
+  text-align: center;
+  margin: 20px;
 }
 
-/* Links Grid and Sticker-Like Cards */
-.links-grid {
-  display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+/* Links section styling */
+.links ul {
+  list-style: none;
+  padding: 0;
 }
 
-.link-card {
-  position: relative;
-  background: #2a2a2a;
-  border: 2px solid var(--graffiti-cyan);
-  padding: 20px;
-  border-radius: 8px;
-  text-decoration: none;
-  color: var(--accent-white);
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.links li {
+  margin: 15px 0;
+  text-align: center;
 }
 
-/* Optional splatter overlay using a radial gradient */
-.link-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle, var(--graffiti-magenta) 10%, transparent 10%);
-  opacity: 0.1;
-  pointer-events: none;
-}
-
-.card-content {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.link-title {
+.links a {
   font-family: 'Bangers', cursive;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: #00ff00;
+  background: #000;
+  padding: 10px 20px;
+  border: 3px solid #00ff00;
+  border-radius: 5px;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
-.link-arrow {
-  font-size: 1.4rem;
-  color: var(--graffiti-yellow);
-  transition: transform 0.3s ease;
+.links a:hover {
+  background: #00ff00;
+  color: #000;
 }
 
-.link-card:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 0 15px var(--graffiti-magenta);
-}
-
-.link-card:hover .link-arrow {
-  transform: translate(2px, -2px);
-}
-
-@media (max-width: 480px) {
-  .hero-title {
-    font-size: 2.5rem;
-  }
-  
-  .container {
-    margin: 20px auto;
-    padding: 20px;
-  }
-  
-  .links-grid {
-    grid-template-columns: 1fr;
-  }
+/* Footer styling */
+footer {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 1rem;
 }
