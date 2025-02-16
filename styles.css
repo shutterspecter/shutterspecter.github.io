@@ -1,12 +1,10 @@
 :root {
-  --neon-red: #ff0055;
-  --neon-blue: #00ffff;
-  --neon-purple: #9900ff;
-  --dark-bg: #080808;
-  --darker-bg: #050505;
-  --spider-red: #ff1744;
-  --spider-blue: #00e5ff;
-  --cyber-glow: rgba(0, 229, 255, 0.3);
+  /* Graffiti color palette */
+  --graffiti-yellow: #FFEB3B;
+  --graffiti-magenta: #E91E63;
+  --graffiti-cyan:    #00BCD4;
+  --concrete-bg:      #1f1f1f;
+  --accent-white:     #ffffff;
 }
 
 * {
@@ -17,23 +15,13 @@
 
 body {
   font-family: 'Share Tech Mono', monospace;
-  background: var(--dark-bg);
-  color: #eee;
+  background: var(--concrete-bg);
+  color: var(--accent-white);
   min-height: 100vh;
   overflow-x: hidden;
   position: relative;
-}
-
-/* Cyberpunk-inspired radial gradient overlay */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.9) 80%);
-  z-index: -2;
+  /* Optionally, add a background image of a concrete wall or graffiti texture */
+  /* background: url('your-graffiti-texture.jpg') no-repeat center center fixed; */
 }
 
 .noise-overlay {
@@ -42,8 +30,8 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyBAMAAADsEZWCAAAAGFBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVfJ92AAAACHRSTlMzMzMzMzMzM85JBgUAAAABYktHRAH/Ai3eAAAASElEQVQ4y2NgQAP8DAz8DAwMzFAaFUByQyQYGBgREnArwqseBYhvFYPgqlWrVgnABYVQgApEYLrRgQhKIIIbiOABInjBCD4AACuLLVmhZjgDAAAAAElFTkSuQmCC');
-  opacity: 0.08;
+  /* Faint overlay to simulate wall texture */
+  background: rgba(0, 0, 0, 0.1);
   pointer-events: none;
   z-index: 1000;
 }
@@ -55,7 +43,7 @@ body::before {
   width: 100vw;
   height: 100vh;
   z-index: 0;
-  opacity: 0.2;
+  opacity: 0.15;
 }
 
 .container {
@@ -67,77 +55,36 @@ body::before {
   padding: 30px;
 }
 
-/* Header and Glitch effects */
+/* Header and Graffiti Title Effects */
 .hero {
   text-align: center;
   margin-bottom: 60px;
   position: relative;
 }
 
-.glitch-container {
+.graffiti-title {
   position: relative;
   display: inline-block;
 }
 
 .hero-title {
-  font-family: 'Rubik', sans-serif;
+  font-family: 'Bangers', cursive;
   font-size: 4rem;
-  color: white;
+  color: var(--graffiti-magenta);
+  text-shadow: 2px 2px var(--graffiti-cyan), -2px -2px var(--graffiti-yellow);
   position: relative;
-  animation: chromatic 2s infinite linear alternate-reverse;
 }
 
-.hero-title::before,
-.hero-title::after {
-  content: attr(data-text);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+/* Drip effect below the title */
+.drip {
+  width: 60%;
+  height: 8px;
+  background: var(--graffiti-yellow);
+  margin: 10px auto 0;
+  border-radius: 50% 50% 0 0;
+  box-shadow: 0 4px 0 var(--graffiti-magenta);
 }
 
-.hero-title::before {
-  color: var(--spider-red);
-  animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
-}
-
-.hero-title::after {
-  color: var(--spider-blue);
-  animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
-}
-
-@keyframes glitch {
-  0% {
-    transform: translate(0);
-  }
-  20% {
-    transform: translate(-2px, 2px);
-  }
-  40% {
-    transform: translate(-2px, -2px);
-  }
-  60% {
-    transform: translate(2px, 2px);
-  }
-  80% {
-    transform: translate(2px, -2px);
-  }
-  100% {
-    transform: translate(0);
-  }
-}
-
-@keyframes chromatic {
-  0% { 
-    text-shadow: 0.25px 0 0 red, -0.25px 0 0 #00ffff;
-  }
-  100% { 
-    text-shadow: -0.25px 0 0 red, 0.25px 0 0 #00ffff;
-  }
-}
-
-/* Hero Tagline styling */
 .hero-tagline {
   display: flex;
   gap: 20px;
@@ -147,63 +94,36 @@ body::before {
 }
 
 .tag-item {
-  background: linear-gradient(45deg, var(--neon-red), var(--neon-purple));
+  background: linear-gradient(45deg, var(--graffiti-magenta), var(--graffiti-yellow));
   padding: 5px 15px;
   border-radius: 20px;
   font-size: 0.9rem;
-  color: white;
-  text-shadow: 0 0 10px rgba(255,255,255,0.5);
+  color: var(--accent-white);
+  text-shadow: 1px 1px var(--graffiti-cyan);
 }
 
-/* Section Titles */
+/* Section Titles styled like spray-painted tags */
 .section-title {
-  font-family: 'Rubik', sans-serif;
-  font-size: 2rem;
-  color: var(--neon-blue);
+  font-family: 'Bangers', cursive;
+  font-size: 2.5rem;
+  color: var(--graffiti-cyan);
   margin-bottom: 20px;
   position: relative;
-  text-shadow: 2px 2px var(--neon-purple);
+  text-shadow: 3px 3px var(--graffiti-magenta);
 }
 
-/* Chrome Box inspired by cyberpunk tech aesthetics */
-.chrome-box {
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.2);
+/* Mural Box for the About section */
+.mural-box {
+  background: rgba(0, 0, 0, 0.4);
   padding: 20px;
+  border: 2px dashed var(--graffiti-yellow);
   border-radius: 10px;
   line-height: 1.6;
   position: relative;
   overflow: hidden;
 }
 
-.chrome-box::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    45deg,
-    transparent,
-    rgba(255,255,255,0.1),
-    transparent
-  );
-  transform: rotate(45deg);
-  animation: chrome-shine 3s infinite;
-}
-
-@keyframes chrome-shine {
-  0% {
-    transform: translateX(-100%) rotate(45deg);
-  }
-  100% {
-    transform: translateX(100%) rotate(45deg);
-  }
-}
-
-/* Links Grid and Cards */
+/* Links Grid and Sticker-Like Cards */
 .links-grid {
   display: grid;
   gap: 20px;
@@ -212,14 +132,27 @@ body::before {
 
 .link-card {
   position: relative;
-  background: var(--darker-bg);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: #2a2a2a;
+  border: 2px solid var(--graffiti-cyan);
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 8px;
   text-decoration: none;
-  color: white;
+  color: var(--accent-white);
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Optional splatter overlay using a radial gradient */
+.link-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, var(--graffiti-magenta) 10%, transparent 10%);
+  opacity: 0.1;
+  pointer-events: none;
 }
 
 .card-content {
@@ -230,36 +163,20 @@ body::before {
   align-items: center;
 }
 
-.card-glitch {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(45deg, var(--neon-red), var(--neon-purple));
-  opacity: 0;
-  transition: 0.3s ease;
-}
-
-.link-card:hover .card-glitch {
-  opacity: 0.1;
-}
-
-.link-card:hover {
-  transform: translateY(-2px) scale(1.02);
-  border-color: var(--neon-blue);
-  box-shadow: 0 0 20px var(--cyber-glow);
-}
-
 .link-title {
-  font-family: 'Rubik', sans-serif;
-  font-size: 1rem;
+  font-family: 'Bangers', cursive;
+  font-size: 1.2rem;
 }
 
 .link-arrow {
-  font-size: 1.2rem;
-  color: var(--neon-blue);
-  transition: 0.3s ease;
+  font-size: 1.4rem;
+  color: var(--graffiti-yellow);
+  transition: transform 0.3s ease;
+}
+
+.link-card:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 0 15px var(--graffiti-magenta);
 }
 
 .link-card:hover .link-arrow {

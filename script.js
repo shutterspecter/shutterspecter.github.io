@@ -1,11 +1,11 @@
-/* Three.js background animation combining Spiderverse and Cyberpunk inspirations */
+/* Three.js background animation with graffiti flair */
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 const renderer = new THREE.WebGLRenderer({ alpha: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.getElementById('canvas-container').appendChild(renderer.domElement);
 
-// Create a hexagonal grid (modified to evoke a futuristic, web-like structure)
+// Create a dynamic grid that hints at spray-painted textures
 const geometry = new THREE.BufferGeometry();
 const points = [];
 const size = 100;
@@ -25,10 +25,10 @@ for (let row = -size; row <= size; row++) {
 geometry.setAttribute('position', new THREE.Float32BufferAttribute(points, 3));
 
 const material = new THREE.PointsMaterial({
-  color: 0xff0055,
+  color: 0xE91E63, // graffiti magenta
   size: 0.15,
   transparent: true,
-  opacity: 0.6
+  opacity: 0.7
 });
 
 const grid = new THREE.Points(geometry, material);
@@ -44,10 +44,10 @@ function animate() {
   
   time += 0.002;
   
-  // Rotate grid for a dynamic effect
+  // Rotate grid for a subtle dynamic backdrop
   grid.rotation.y = time * 0.2;
   
-  // Wave animation evoking both the fluidity of Spiderverse visuals and cyberpunk motion
+  // Wave animation to add energy reminiscent of a spray-paint vibe
   const positions = grid.geometry.attributes.position.array;
   for (let i = 0; i < positions.length; i += 3) {
     const x = positions[i];
@@ -57,8 +57,8 @@ function animate() {
   
   grid.geometry.attributes.position.needsUpdate = true;
   
-  // Color pulse blending neon cyberpunk hues with Spiderverse inspiration
-  material.color.setHSL(Math.sin(time) * 0.1 + 0.5, 1, 0.5);
+  // Adjust color pulse for a vivid, urban effect
+  material.color.setHSL(Math.sin(time) * 0.1 + 0.1, 1, 0.6);
   
   renderer.render(scene, camera);
 }
