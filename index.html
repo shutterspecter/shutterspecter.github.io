@@ -4,57 +4,53 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>shutterspecter | Digital Presence</title>
-  <!-- Mid-Century Modern Minimal Bento-Box Design -->
   <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <!-- Using Montserrat for a clean, modern look -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <h1 class="site-title">shutterspecter</h1>
-      <p class="site-tagline">Multifaceted Artist | Tech Enthusiast | Free Spirit</p>
-    </div>
-  </header>
+  <div id="canvas-container"></div>
+  
+  <div class="container">
+    <header class="hero">
+      <h1 class="hero-title">shutterspecter</h1>
+      <p class="hero-tagline">Multifaceted Artist • Tech Enthusiast • Free Spirit</p>
+    </header>
 
-  <main class="container">
     <section class="about">
       <h2>About Me</h2>
-      <p>
-        Hello there! Welcome to my little corner of the internet. I'm a multifaceted artist and educator, specializing in filmmaking, video editing, motion design, and photography. If you are curious what I create, check the links below.
-      </p>
+      <p>Hello there! Welcome to my little corner of the internet. I'm a multifaceted artist and educator, specializing in filmmaking, video editing, motion design, and photography. If you are curious what I create, check the links below.</p>
     </section>
 
-    <section class="connect">
-      <h2>Connect</h2>
-      <div class="bento-grid">
-        <a href="https://ko-fi.com/shutterspecter/shop" target="_blank" rel="noopener" class="bento-item">
-          FREE &amp; Paid Digital Assets
-        </a>
-        <a href="https://www.youtube.com/@shutterspecter" target="_blank" rel="noopener" class="bento-item">
-          Video Editing Tutorials
-        </a>
-        <a href="https://www.youtube.com/@SolaceNexus" target="_blank" rel="noopener" class="bento-item">
-          Gaming Content
-        </a>
-        <a href="https://www.youtube.com/@origoflow" target="_blank" rel="noopener" class="bento-item">
-          Vlog Channel
-        </a>
-        <a href="https://www.instagram.com/shutterspecter/" target="_blank" rel="noopener" class="bento-item">
-          My Photography
-        </a>
-        <a href="https://www.instagram.com/the3dspecter/" target="_blank" rel="noopener" class="bento-item">
-          My 3D
-        </a>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; 2025 shutterspecter</p>
+    <div class="links">
+      <a href="https://ko-fi.com/shutterspecter/shop" class="link-card" target="_blank" rel="noopener">
+        <span class="link-title">FREE & Paid Digital Assets</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a href="https://www.youtube.com/@shutterspecter" class="link-card" target="_blank" rel="noopener">
+        <span class="link-title">Video Editing Tutorials</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a href="https://www.youtube.com/@SolaceNexus" class="link-card" target="_blank" rel="noopener">
+        <span class="link-title">Gaming Content</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a href="https://www.youtube.com/@origoflow" class="link-card" target="_blank" rel="noopener">
+        <span class="link-title">Vlog Channel</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a href="https://www.instagram.com/shutterspecter/" class="link-card" target="_blank" rel="noopener">
+        <span class="link-title">My Photography</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a href="https://www.instagram.com/the3dspecter/" class="link-card" target="_blank" rel="noopener">
+        <span class="link-title">My 3D</span>
+        <span class="link-arrow">→</span>
+      </a>
     </div>
-  </footer>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
