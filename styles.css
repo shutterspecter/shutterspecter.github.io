@@ -41,7 +41,7 @@ body {
   overflow-x: hidden;
   display: flex;
   justify-content: center;
-  padding: 2rem 1rem;
+  padding: 2rem;
 }
 
 #canvas-container {
@@ -54,12 +54,14 @@ body {
   opacity: 0.15;
 }
 
+/* Container - Updated for better width handling */
 .container {
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px; /* Increased from 1200px */
   margin: 0 auto;
+  padding: 0 1rem; /* Added padding to prevent edge-touching */
 }
 
 /* Header Styles */
@@ -122,13 +124,14 @@ body {
   animation: fadeInUp 0.8s ease 0.2s forwards;
 }
 
-/* Grid System - Updated */
+/* Grid System - Updated for better proportions */
 .bento-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-auto-rows: minmax(100px, auto);
   gap: 1.5rem;
   margin-bottom: 2rem;
+  width: 100%;
 }
 
 .about {
@@ -172,14 +175,15 @@ body {
   font-size: 1.1rem;
 }
 
-/* Links Grid - Updated */
+/* Links Grid - Updated for better proportions */
 .links {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 1.5rem;
+  width: 100%;
 }
 
-/* Link Card - Updated for better proportions */
+/* Base styles for link cards - adjusted for better horizontal distribution */
 .link-card {
   position: relative;
   background-color: var(--card-bg);
@@ -196,6 +200,7 @@ body {
   box-shadow: 0 10px 30px var(--shadow);
   height: auto;
   min-height: 180px;
+  width: 100%; /* Ensure cards take full width of their grid area */
 }
 
 .link-card:hover {
@@ -204,7 +209,7 @@ body {
   box-shadow: 0 15px 35px var(--shadow);
 }
 
-/* Updated card placement and sizing */
+/* Improved grid layout with better proportions */
 .link-card:nth-child(1) {
   grid-column: span 6;
   grid-row: span 1;
@@ -304,18 +309,21 @@ body {
   }
 }
 
-/* Responsive Adjustments - Updated */
+/* Updated responsive breakpoints */
+@media (max-width: 1200px) {
+  .container {
+    max-width: 100%;
+    padding: 0 2rem;
+  }
+}
+
 @media (max-width: 1024px) {
   .links {
-    grid-template-columns: repeat(8, 1fr);
+    grid-template-columns: repeat(12, 1fr);
   }
-
-  .link-card:nth-child(1) {
-    grid-column: span 4;
-  }
-  
+  .link-card:nth-child(1),
   .link-card:nth-child(2) {
-    grid-column: span 4;
+    grid-column: span 6;
   }
   
   .link-card:nth-child(3),
@@ -326,17 +334,21 @@ body {
   
   .link-card:nth-child(6),
   .link-card:nth-child(7) {
-    grid-column: span 4;
+    grid-column: span 6;
   }
 }
 
 @media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
   .bento-grid, 
   .links {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 1rem;
   }
-
+  
   .hero-title {
     font-size: 2.5rem;
   }
@@ -345,11 +357,20 @@ body {
     padding: 1.5rem;
   }
 
-  .link-card {
-    grid-column: span 4 !important;
-    grid-row: span 1 !important;
-    padding: 1.5rem;
-    min-height: 150px;
+  .link-card:nth-child(1),
+  .link-card:nth-child(2) {
+    grid-column: span 6;
+  }
+  
+  .link-card:nth-child(3),
+  .link-card:nth-child(4),
+  .link-card:nth-child(5) {
+    grid-column: span 3;
+  }
+  
+  .link-card:nth-child(6),
+  .link-card:nth-child(7) {
+    grid-column: span 3;
   }
 
   .link-card:nth-child(1) .link-title,
@@ -358,10 +379,16 @@ body {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .bento-grid, 
   .links {
     grid-template-columns: 1fr;
+  }
+  
+  .link-card {
+    grid-column: span 1 !important;
+    padding: 1.5rem;
+    min-height: 150px;
   }
 
   .hero {
