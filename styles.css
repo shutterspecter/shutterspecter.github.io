@@ -288,6 +288,15 @@ body {
   transition: all 0.3s ease;
 }
 
+/* Fix for the link arrows that look too tall on desktop */
+@media (min-width: 769px) {
+  .link-arrow {
+    width: 40px;
+    height: 32px;
+    border-radius: 16px;
+  }
+}
+
 .link-card:hover .link-arrow {
   transform: translateX(5px);
   box-shadow: 0 5px 15px rgba(241, 154, 62, 0.3);
@@ -377,8 +386,8 @@ body {
   }
 }
 
-/* Dark Mode / Light Mode Toggle */
-.theme-toggle {
+/* Dark Mode / Light Mode Toggle - REMOVED */
+/* .theme-toggle {
   position: fixed;
   top: 20px;
   right: 20px;
@@ -397,7 +406,7 @@ body {
 
 .theme-toggle:hover {
   transform: rotate(30deg);
-}
+} */
 
 /* Subtle Animation for All Cards */
 .hero, .about, .link-card {
