@@ -181,6 +181,7 @@ body {
   grid-template-columns: repeat(12, 1fr);
   gap: 1.5rem;
   width: 100%;
+  grid-column: span 12; /* Ensure the links container fills the full width of the parent grid */
 }
 
 /* Base styles for link cards - adjusted for better horizontal distribution */
