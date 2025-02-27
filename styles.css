@@ -271,12 +271,13 @@ body {
   line-height: 1.4;
 }
 
+/* Updated Link Arrow Styles */
 .link-arrow {
   position: absolute;
   bottom: 1.5rem;
   right: 1.5rem;
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -288,12 +289,12 @@ body {
   transition: all 0.3s ease;
 }
 
-/* Fix for the link arrows that look too tall on desktop */
+/* Keep the existing media query but adjust values */
 @media (min-width: 769px) {
   .link-arrow {
-    width: 40px;
+    width: 32px;
     height: 32px;
-    border-radius: 16px;
+    border-radius: 50%;
   }
 }
 
