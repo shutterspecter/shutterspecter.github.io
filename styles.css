@@ -204,17 +204,12 @@ body {
   width: 100%; /* Ensure cards take full width of their grid area */
 }
 
-.link-card:hover {
-  transform: translateY(-5px);
-  background-color: var(--card-hover);
-  box-shadow: 0 15px 35px var(--shadow);
-}
-
 /* Improved grid layout with better proportions */
 .link-card:nth-child(1) {
   grid-column: span 6;
   grid-row: span 1;
-  background-color: var(--accent-soft);
+  background-color: var(--primary); /* Changed from var(--accent-soft) to var(--primary) */
+  color: var(--text); /* Ensuring text is visible on purple background */
   min-height: 220px;
 }
 
@@ -237,6 +232,19 @@ body {
 .link-card:nth-child(7) {
   grid-column: span 6;
   grid-row: span 1;
+}
+
+.link-card:hover {
+  transform: translateY(-15px) scale(1.03);
+  background-color: var(--card-hover);
+  box-shadow: 0 15px 35px var(--shadow);
+  z-index: 10;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Adjust arrow color for the first card for better visibility */
+.link-card:nth-child(1) .link-arrow {
+  background-color: var(--accent);
 }
 
 .link-icon {
@@ -307,6 +315,19 @@ body {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Make the hover animation smoother and more pronounced */
+@keyframes float {
+  0% {
+    transform: translateY(-15px) scale(1.03);
+  }
+  50% {
+    transform: translateY(-18px) scale(1.04);
+  }
+  100% {
+    transform: translateY(-15px) scale(1.03);
   }
 }
 
