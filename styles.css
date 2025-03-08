@@ -5,36 +5,36 @@
 }
 
 :root {
-  /* Color Variables */
-  --primary: #2D3250;
-  --secondary: #424769;
-  --accent: #F19A3E;
-  --accent-soft: #F6B17A;
-  --text: #F7F7F7;
-  --text-dark: #121212;
-  --background: #F9F9F9;
+  /* Updated Color Variables - Modern Palette */
+  --primary: #7F5AF0;
+  --secondary: #6B46C1;
+  --accent: #FF8E3C;
+  --accent-soft: #FFA970;
+  --text: #FFFFFE;
+  --text-dark: #16161A;
+  --background: #F8F8FF;
   --card-bg: #FFFFFF;
-  --card-hover: #F5F5F5;
+  --card-hover: #F2F2FF;
   --shadow: rgba(0, 0, 0, 0.05);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --primary: #5A73D8;
-    --secondary: #424769;
-    --accent: #F19A3E;
-    --accent-soft: #F6B17A;
-    --text: #F7F7F7;
-    --text-dark: #F7F7F7;
-    --background: #121212;
-    --card-bg: #1E1E1E;
-    --card-hover: #2A2A2A;
+    --primary: #7F5AF0;
+    --secondary: #6B46C1;
+    --accent: #FF8E3C;
+    --accent-soft: #FFA970;
+    --text: #FFFFFE;
+    --text-dark: #FFFFFE;
+    --background: #16161A;
+    --card-bg: #242629;
+    --card-hover: #2E2E35;
     --shadow: rgba(255, 255, 255, 0.03);
   }
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   background-color: var(--background);
   color: var(--text-dark);
   min-height: 100vh;
@@ -94,7 +94,7 @@ body {
 }
 
 .hero-title {
-  font-family: 'DM Serif Display', serif;
+  font-family: 'Fraunces', serif;
   font-size: 3.5rem;
   color: var(--text);
   margin-bottom: 1rem;
@@ -116,7 +116,7 @@ body {
 }
 
 .hero-tagline {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Outfit', sans-serif;
   color: var(--text);
   font-size: 1.15rem;
   font-weight: 300;
@@ -149,7 +149,7 @@ body {
 }
 
 .about h2 {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Outfit', sans-serif;
   color: var(--primary);
   margin-bottom: 1rem;
   font-size: 2rem;
@@ -240,13 +240,13 @@ body {
 }
 
 .link-icon {
-  font-size: 2rem;
+  font-size: this2rem;
   margin-bottom: 0.8rem;
   color: var(--primary);
 }
 
 .link-title {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 1.25rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
@@ -299,7 +299,7 @@ body {
 
 .link-card:hover .link-arrow {
   transform: translateX(5px);
-  box-shadow: 0 5px 15px rgba(241, 154, 62, 0.3);
+  box-shadow: 0 5px 15px rgba(255, 142, 60, 0.3);
 }
 
 /* Animation */
@@ -408,28 +408,6 @@ body {
     font-size: 1rem;
   }
 }
-
-/* Dark Mode / Light Mode Toggle - REMOVED */
-/* .theme-toggle {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 100;
-  width: 40px;
-  height: 40px;
-  background-color: var(--card-bg);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  box-shadow: 0 4px 10px var(--shadow);
-  transition: all 0.3s ease;
-}
-
-.theme-toggle:hover {
-  transform: rotate(30deg);
-} */
 
 /* Subtle Animation for All Cards */
 .hero, .about, .link-card {

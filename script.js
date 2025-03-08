@@ -17,7 +17,7 @@ for (let x = -size; x <= size; x += spacing) {
 geometry.setAttribute('position', new THREE.Float32BufferAttribute(points, 3));
 // More subtle colors that work with both light and dark mode
 const material = new THREE.PointsMaterial({
-  color: 0x5A73D8,
+  color: 0x7F5AF0,
   size: 0.1,
   transparent: true,
   opacity: 0.5
@@ -56,11 +56,10 @@ window.addEventListener('resize', () => {
 const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
 if (prefersDarkMode) {
   document.body.classList.add('dark-mode');
-  material.color.set(0x5A73D8);
+  material.color.set(0x7F5AF0);
 } else {
-  material.color.set(0x2D3250);
+  material.color.set(0x7F5AF0);
 }
-
 // Add scroll reveal animation
 const cards = document.querySelectorAll('.link-card, .about, .hero');
 const observer = new IntersectionObserver((entries) => {
