@@ -1,9 +1,10 @@
-// Three.js background animation - modified for subtle effect
+/* Three.js background animation - modified for subtle effect */
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.getElementById('canvas-container').appendChild(renderer.domElement);
+
 // Create a grid of points - more subtle, modern approach
 const geometry = new THREE.BufferGeometry();
 const points = [];
@@ -15,6 +16,7 @@ for (let x = -size; x <= size; x += spacing) {
   }
 }
 geometry.setAttribute('position', new THREE.Float32BufferAttribute(points, 3));
+
 // More subtle colors that work with both light and dark mode
 const material = new THREE.PointsMaterial({
   color: 0x7F5AF0,
@@ -45,14 +47,15 @@ function animate() {
   renderer.render(scene, camera);
 }
 animate();
+
 // Handle window resize
 window.addEventListener('resize', () => {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
 });
+
 // Dark/Light mode toggle - functionality maintained but button removed
-// Check system preference and apply appropriate theme
 const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
 if (prefersDarkMode) {
   document.body.classList.add('dark-mode');
@@ -60,6 +63,7 @@ if (prefersDarkMode) {
 } else {
   material.color.set(0x7F5AF0);
 }
+
 // Add scroll reveal animation
 const cards = document.querySelectorAll('.link-card, .about, .hero');
 const observer = new IntersectionObserver((entries) => {
@@ -76,6 +80,7 @@ cards.forEach(card => {
   card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
   observer.observe(card);
 });
+
 // Add hover effects for mobile
 cards.forEach(card => {
   card.addEventListener('touchstart', function() {

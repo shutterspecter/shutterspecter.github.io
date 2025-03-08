@@ -44,6 +44,14 @@ body {
   padding: 2rem;
 }
 
+/* Ensure responsiveness on Firefox */
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
 #canvas-container {
   position: fixed;
   top: 0;
@@ -52,16 +60,6 @@ body {
   height: 100vh;
   z-index: 0;
   opacity: 0.15;
-}
-
-/* Container - Updated for better width handling */
-.container {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  max-width: 1400px; /* Increased from 1200px */
-  margin: 0 auto;
-  padding: 0 1rem; /* Added padding to prevent edge-touching */
 }
 
 /* Header Styles */
@@ -76,10 +74,12 @@ body {
   overflow: hidden;
   box-shadow: 0 10px 30px var(--shadow);
   transition: transform 0.3s ease;
+  -moz-transition: transform 0.3s ease;
 }
 
 .hero:hover {
   transform: translateY(-5px);
+  -moz-transform: translateY(-5px);
 }
 
 .hero::before {
@@ -124,7 +124,7 @@ body {
   animation: fadeInUp 0.8s ease 0.2s forwards;
 }
 
-/* Grid System - Updated for better proportions */
+/* Grid System */
 .bento-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -140,11 +140,13 @@ body {
   padding: 2rem;
   border-radius: 24px;
   transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
   box-shadow: 0 10px 30px var(--shadow);
 }
 
 .about:hover {
   transform: translateY(-5px);
+  -moz-transform: translateY(-5px);
   box-shadow: 0 15px 35px var(--shadow);
 }
 
@@ -175,16 +177,16 @@ body {
   font-size: 1.1rem;
 }
 
-/* Links Grid - Updated for better proportions */
+/* Links Grid */
 .links {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 1.5rem;
   width: 100%;
-  grid-column: span 12; /* Ensure the links container fills the full width of the parent grid */
+  grid-column: span 12;
 }
 
-/* Base styles for link cards - adjusted for better horizontal distribution */
+/* Link Cards */
 .link-card {
   position: relative;
   background-color: var(--card-bg);
@@ -197,19 +199,20 @@ body {
   justify-content: flex-start;
   align-items: flex-start;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  -moz-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   overflow: hidden;
   box-shadow: 0 10px 30px var(--shadow);
   height: auto;
   min-height: 180px;
-  width: 100%; /* Ensure cards take full width of their grid area */
+  width: 100%;
 }
 
-/* Improved grid layout with better proportions */
+/* Specific link-card grid placements */
 .link-card:nth-child(1) {
   grid-column: span 6;
   grid-row: span 1;
-  background-color: var(--primary); /* Changed from var(--accent-soft) to var(--primary) */
-  color: var(--text); /* Ensuring text is visible on purple background */
+  background-color: var(--primary);
+  color: var(--text);
   min-height: 220px;
 }
 
@@ -236,19 +239,21 @@ body {
 
 .link-card:hover {
   transform: translateY(-15px) scale(1.03);
+  -moz-transform: translateY(-15px) scale(1.03);
   background-color: var(--card-hover);
   box-shadow: 0 15px 35px var(--shadow);
   z-index: 10;
   animation: float 3s ease-in-out infinite;
+  -moz-animation: float 3s ease-in-out infinite;
 }
 
-/* Adjust arrow color for the first card for better visibility */
+/* Arrow adjustments */
 .link-card:nth-child(1) .link-arrow {
   background-color: var(--accent);
 }
 
 .link-icon {
-  font-size: this2rem;
+  font-size: 2rem;
   margin-bottom: 0.8rem;
   color: var(--primary);
 }
@@ -259,6 +264,7 @@ body {
   font-weight: 700;
   margin-bottom: 0.5rem;
   transition: transform 0.3s ease;
+  -moz-transition: transform 0.3s ease;
   width: 100%;
 }
 
@@ -269,6 +275,7 @@ body {
 
 .link-card:hover .link-title {
   transform: translateX(8px);
+  -moz-transform: translateX(8px);
 }
 
 .link-desc {
@@ -278,7 +285,7 @@ body {
   line-height: 1.4;
 }
 
-/* Updated Link Arrow Styles */
+/* Link Arrow Styles */
 .link-arrow {
   position: absolute;
   bottom: 1.5rem;
@@ -294,9 +301,9 @@ body {
   font-size: 1.2rem;
   font-weight: bold;
   transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
 }
 
-/* Keep the existing media query but adjust values */
 @media (min-width: 769px) {
   .link-arrow {
     width: 32px;
@@ -307,18 +314,24 @@ body {
 
 .link-card:hover .link-arrow {
   transform: translateX(5px);
+  -moz-transform: translateX(5px);
   box-shadow: 0 5px 15px rgba(255, 142, 60, 0.3);
 }
 
-/* Animation */
+/* Keyframes */
 @keyframes fadeInUp {
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
+@-moz-keyframes fadeInUp {
+  to {
+    opacity: 1;
+    -moz-transform: translateY(0);
+  }
+}
 
-/* Make the hover animation smoother and more pronounced */
 @keyframes float {
   0% {
     transform: translateY(-15px) scale(1.03);
@@ -330,8 +343,19 @@ body {
     transform: translateY(-15px) scale(1.03);
   }
 }
+@-moz-keyframes float {
+  0% {
+    -moz-transform: translateY(-15px) scale(1.03);
+  }
+  50% {
+    -moz-transform: translateY(-18px) scale(1.04);
+  }
+  100% {
+    -moz-transform: translateY(-15px) scale(1.03);
+  }
+}
 
-/* Updated responsive breakpoints */
+/* Responsive Breakpoints */
 @media (max-width: 1200px) {
   .container {
     max-width: 100%;
@@ -451,8 +475,21 @@ body {
   );
   z-index: 1;
   transition: left 0.7s ease;
+  -moz-transition: left 0.7s ease;
 }
 
 .hero:hover::after, .about:hover::after, .link-card:hover::after {
   left: 100%;
+}
+
+/* Firefox-specific optimizations */
+@-moz-document url-prefix() {
+  /* Ensure container width handling in Firefox */
+  .container {
+    width: 100%;
+  }
+  /* Use vendor-prefixed transitions */
+  .hero, .about, .link-card {
+    -moz-transition: opacity 0.6s ease, -moz-transform 0.6s ease;
+  }
 }
