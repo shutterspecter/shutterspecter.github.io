@@ -3,72 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>shutterspecter | Digital Presence</title>
+    <title>shutterspecter@terminal:~$</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&family=Fraunces:opsz,wght@9..144,400;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="canvas-container"></div>
+    <div class="scanline"></div>
     <div class="container">
-        <header class="hero">
-            <h1 class="hero-title">shutterspecter</h1>
-            <p class="hero-tagline">Multifaceted Artist • Tech Enthusiast • Free Spirit</p>
+        <header class="terminal-header">
+            <div class="window-controls">
+                <span class="control close"></span>
+                <span class="control minimize"></span>
+                <span class="control maximize"></span>
+            </div>
+            <div class="terminal-title">shutterspecter@terminal: ~</div>
         </header>
-        <main class="bento-grid">
-            <section class="about">
-                <h2>About Me</h2>
-                <p>Hello there! Welcome to my little corner of the internet. I'm a multifaceted artist and educator, specializing
-                    in filmmaking, video editing, motion design, and photography. If you are curious what I create, check the links
-                    below.</p>
-            </section>
-            <section class="links">
-                <a href="https://ko-fi.com/shutterspecter/shop" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-icon">✨</div>
-                    <span class="link-title">FREE & Paid Digital Assets</span>
-                    <span class="link-desc">Browse my collection of digital assets for creative projects</span>
-                    <span class="link-arrow">→</span>
-                </a>
-                <a href="https://www.redbubble.com/people/altervision/shop" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-icon">🎨</div>
-                    <span class="link-title">PRINT SHOP</span>
-                    <span class="link-desc">My designs on various products and prints</span>
-                    <span class="link-arrow">→</span>
-                </a>
-                <a href="https://www.youtube.com/@shutterspecter" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-icon">🎥</div>
-                    <span class="link-title">Video Editing Tutorials</span>
-                    <span class="link-desc">Learn editing techniques</span>
-                    <span class="link-arrow">→</span>
-                </a>
-                <a href="https://www.youtube.com/@SolaceNexus" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-icon">🎮</div>
-                    <span class="link-title">Gaming Content</span>
-                    <span class="link-desc">Gaming videos & streams</span>
-                    <span class="link-arrow">→</span>
-                </a>
-                <a href="https://www.youtube.com/@origoflow" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-icon">📱</div>
-                    <span class="link-title">Vlog Channel</span>
-                    <span class="link-desc">Personal vlogs & behind-the-scenes</span>
-                    <span class="link-arrow">→</span>
-                </a>
-                <a href="https://www.instagram.com/shutterspecter/" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-icon">📸</div>
-                    <span class="link-title">My Photography</span>
-                    <span class="link-desc">Portfolio of photography work</span>
-                    <span class="link-arrow">→</span>
-                </a>
-                <a href="https://www.instagram.com/the3dspecter/" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-icon">💎</div>
-                    <span class="link-title">My 3D</span>
-                    <span class="link-desc">3D models & animations</span>
-                    <span class="link-arrow">→</span>
-                </a>
-            </section>
-        </main>
+        
+        <div class="terminal-body">
+            <div class="ascii-art">
+<pre>
+   ███████╗██╗  ██╗██╗   ██╗████████╗████████╗███████╗██████╗ 
+   ██╔════╝██║  ██║██║   ██║╚══██╔══╝╚══██╔══╝██╔════╝██╔══██╗
+   ███████╗███████║██║   ██║   ██║      ██║   █████╗  ██████╔╝
+   ╚════██║██╔══██║██║   ██║   ██║      ██║   ██╔══╝  ██╔══██╗
+   ███████║██║  ██║╚██████╔╝   ██║      ██║   ███████╗██║  ██║
+   ╚══════╝╚═╝  ╚═╝ ╚═════╝    ╚═╝      ╚═╝   ╚══════╝╚═╝  ╚═╝
+                                                                
+   ███████╗██████╗ ███████╗ ██████╗████████╗███████╗██████╗   
+   ██╔════╝██╔══██╗██╔════╝██╔════╝╚══██╔══╝██╔════╝██╔══██╗  
+   ███████╗██████╔╝█████╗  ██║        ██║   █████╗  ██████╔╝  
+   ╚════██║██╔═══╝ ██╔══╝  ██║        ██║   ██╔══╝  ██╔══██╗  
+   ███████║██║     ███████╗╚██████╗   ██║   ███████╗██║  ██║  
+   ╚══════╝╚═╝     ╚══════╝ ╚═════╝   ╚═╝   ╚══════╝╚═╝  ╚═╝  
+</pre>
+            </div>
+
+            <div class="system-info">
+                <span class="prompt">$</span> neofetch
+                <div class="neofetch-output">
+                    <pre>
+┌─────────────────────────────────────────────────────┐
+│ <span class="cyan">shutterspecter</span>@<span class="green">digital-presence</span>           │
+├─────────────────────────────────────────────────────┤
+│ <span class="yellow">OS:</span>      Creative Linux x86_64                │
+│ <span class="yellow">Role:</span>    Multifaceted Artist                  │
+│ <span class="yellow">Skills:</span>  Filmmaking • Video Editing           │
+│          Motion Design • Photography            │
+│ <span class="yellow">Status:</span>  <span class="green">● Online</span> - Free Spirit             │
+└─────────────────────────────────────────────────────┘
+                    </pre>
+                </div>
+            </div>
+
+            <div class="command-section">
+                <div class="prompt-line">
+                    <span class="prompt">$</span> cat about.txt
+                </div>
+                <div class="output">
+                    <p>Hello there! Welcome to my little corner of the internet. I'm a multifaceted artist and educator, specializing in filmmaking, video editing, motion design, and photography. If you are curious what I create, check the links below.</p>
+                </div>
+            </div>
+
+            <div class="command-section">
+                <div class="prompt-line">
+                    <span class="prompt">$</span> ls -la ~/links/
+                </div>
+                <div class="file-list">
+                    <a href="https://ko-fi.com/shutterspecter/shop" class="file-item" target="_blank" rel="noopener">
+                        <span class="file-icon">✨</span>
+                        <span class="file-name">digital-assets.sh</span>
+                        <span class="file-desc">FREE & Paid Digital Assets</span>
+                        <span class="file-arrow">→</span>
+                    </a>
+                    
+                    <a href="https://www.redbubble.com/people/altervision/shop" class="file-item" target="_blank" rel="noopener">
+                        <span class="file-icon">🎨</span>
+                        <span class="file-name">print-shop.sh</span>
+                        <span class="file-desc">My designs on various products</span>
+                        <span class="file-arrow">→</span>
+                    </a>
+                    
+                    <a href="https://www.youtube.com/@shutterspecter" class="file-item" target="_blank" rel="noopener">
+                        <span class="file-icon">🎥</span>
+                        <span class="file-name">tutorials.sh</span>
+                        <span class="file-desc">Video editing tutorials</span>
+                        <span class="file-arrow">→</span>
+                    </a>
+                    
+                    <a href="https://www.youtube.com/@SolaceNexus" class="file-item" target="_blank" rel="noopener">
+                        <span class="file-icon">🎮</span>
+                        <span class="file-name">gaming.sh</span>
+                        <span class="file-desc">Gaming videos & streams</span>
+                        <span class="file-arrow">→</span>
+                    </a>
+                    
+                    <a href="https://www.youtube.com/@origoflow" class="file-item" target="_blank" rel="noopener">
+                        <span class="file-icon">📱</span>
+                        <span class="file-name">vlogs.sh</span>
+                        <span class="file-desc">Personal vlogs & BTS</span>
+                        <span class="file-arrow">→</span>
+                    </a>
+                    
+                    <a href="https://www.instagram.com/shutterspecter/" class="file-item" target="_blank" rel="noopener">
+                        <span class="file-icon">📸</span>
+                        <span class="file-name">photography.sh</span>
+                        <span class="file-desc">Portfolio of photography work</span>
+                        <span class="file-arrow">→</span>
+                    </a>
+                    
+                    <a href="https://www.instagram.com/the3dspecter/" class="file-item" target="_blank" rel="noopener">
+                        <span class="file-icon">💎</span>
+                        <span class="file-name">3d-models.sh</span>
+                        <span class="file-desc">3D models & animations</span>
+                        <span class="file-arrow">→</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="cursor-line">
+                <span class="prompt">$</span> <span class="cursor">█</span>
+            </div>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
