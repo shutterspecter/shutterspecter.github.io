@@ -1,107 +1,191 @@
-/* Three.js background animation */
-let scene, camera, renderer, grid;
-
-function initThreeJS() {
-    scene = new THREE.Scene();
-    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(window.devicePixelRatio); // Add this line for better resolution
-    const canvasContainer = document.getElementById('canvas-container');
-    if (canvasContainer) {
-        canvasContainer.appendChild(renderer.domElement);
-    }
-
-    createGrid();
-    camera.position.set(0, 35, 60); // Use set method
-    camera.rotation.x = -0.6;
-    animate();
-}
-
-function createGrid() {
-    const geometry = new THREE.BufferGeometry();
-    const points = [];
-    const size = 80;
-    const spacing = 4;
-    for (let x = -size; x <= size; x += spacing) {
-        for (let z = -size; z <= size; z += spacing) {
-            points.push(x, 0, z);
+// Terminal typing effect
+function typeWriter(element, text, speed = 50) {
+    let i = 0;
+    element.textContent = '';
+    
+    function type() {
+        if (i < text.length) {
+            element.textContent += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
         }
     }
-    geometry.setAttribute('position', new THREE.Float32BufferAttribute(points, 3));
+    
+    type();
+}
 
-    const material = new THREE.PointsMaterial({
-        color: 0x7F5AF0,
-        size: 0.1,
-        transparent: true,
-        opacity: 0.5
+// Boot sequence animation
+function bootSequence() {
+    const asciiArt = document.querySelector('.ascii-art');
+    const systemInfo = document.querySelector('.system-info');
+    const commandSection = document.querySelector('.command-section');
+    const fileList = document.querySelector('.file-list');
+    
+    // Hide elements initially
+    if (asciiArt) asciiArt.style.opacity = '0';
+    if (systemInfo) systemInfo.style.opacity = '0';
+    if (commandSection) commandSection.style.opacity = '0';
+    if (fileList) fileList.style.opacity = '0';
+    
+    // Animate in sequence
+    setTimeout(() => {
+        if (asciiArt) {
+            asciiArt.style.transition = 'opacity 0.5s ease';
+            asciiArt.style.opacity = '1';
+        }
+    }, 200);
+    
+    setTimeout(() => {
+        if (systemInfo) {
+            systemInfo.style.transition = 'opacity 0.5s ease';
+            systemInfo.style.opacity = '1';
+        }
+    }, 800);
+    
+    setTimeout(() => {
+        if (commandSection) {
+            commandSection.style.transition = 'opacity 0.5s ease';
+            commandSection.style.opacity = '1';
+        }
+    }, 1400);
+    
+    setTimeout(() => {
+        if (fileList) {
+            fileList.style.transition = 'opacity 0.5s ease';
+            fileList.style.opacity = '1';
+        }
+    }, 2000);
+}
+
+// Add glitch effect on hover for ASCII art
+function addGlitchEffect() {
+    const asciiArt = document.querySelector('.ascii-art pre');
+    
+    if (asciiArt) {
+        asciiArt.addEventListener('mouseenter', () => {
+            asciiArt.style.animation = 'glitch 0.3s ease';
+        });
+        
+        asciiArt.addEventListener('animationend', () => {
+            asciiArt.style.animation = 'glow 2s ease-in-out infinite alternate';
+        });
+    }
+}
+
+// Add typing sound effect (visual feedback)
+function addTypingFeedback() {
+    const fileItems = document.querySelectorAll('.file-item');
+    
+    fileItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+            // Flash effect
+            item.style.background = 'rgba(255, 0, 255, 0.3)';
+            setTimeout(() => {
+                item.style.background = '';
+            }, 100);
+        });
     });
-    grid = new THREE.Points(geometry, material);
-    scene.add(grid);
 }
 
-function animate() {
-    requestAnimationFrame(animate);
-
-    if (!grid) return;
-
-    grid.rotation.y += 0.001;
-
-    const positions = grid.geometry.attributes.position.array;
-    const time = Date.now() * 0.0005;
-
-    for (let i = 0; i < positions.length; i += 3) {
-        positions[i + 1] = Math.sin(time + positions[i] * 0.05) * 1.5;
-    }
-
-    grid.geometry.attributes.position.needsUpdate = true;
-    renderer.render(scene, camera);
-}
-
-function handleResize() {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-}
-
-function handleDarkMode() {
-    const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    if (prefersDarkMode) {
-        document.body.classList.add('dark-mode');
+// Randomize cursor blink timing slightly for more authentic feel
+function randomizeCursor() {
+    const cursor = document.querySelector('.cursor');
+    if (cursor) {
+        setInterval(() => {
+            const randomDelay = Math.random() * 200 + 800;
+            cursor.style.animationDuration = `${randomDelay}ms`;
+        }, 5000);
     }
 }
 
-function handleScrollReveal() {
-    const cards = document.querySelectorAll('.link-card, .about, .hero');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target); // Stop observing after reveal
+// Matrix rain easter egg (optional - activate on special key combo)
+function matrixRain() {
+    const canvas = document.createElement('canvas');
+    canvas.style.position = 'fixed';
+    canvas.style.top = '0';
+    canvas.style.left = '0';
+    canvas.style.width = '100%';
+    canvas.style.height = '100%';
+    canvas.style.pointerEvents = 'none';
+    canvas.style.zIndex = '1';
+    canvas.style.opacity = '0.08';
+    
+    document.body.appendChild(canvas);
+    
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    
+    const chars = '01アイウエオカキクケコサシスセソタチツテト▲▼◆◇';
+    const fontSize = 14;
+    const columns = canvas.width / fontSize;
+    const drops = Array(Math.floor(columns)).fill(1);
+    
+    function draw() {
+        ctx.fillStyle = 'rgba(10, 0, 21, 0.05)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        
+        // Alternate between pink and cyan
+        const colors = ['#ff00ff', '#00f0ff', '#b537f2'];
+        
+        ctx.font = `${fontSize}px monospace`;
+        
+        for (let i = 0; i < drops.length; i++) {
+            const text = chars[Math.floor(Math.random() * chars.length)];
+            ctx.fillStyle = colors[i % colors.length];
+            ctx.shadowBlur = 10;
+            ctx.shadowColor = colors[i % colors.length];
+            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+            
+            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                drops[i] = 0;
             }
-        });
-    }, { threshold: 0.1 });
-    cards.forEach(card => {
-        card.classList.add('hidden');
-        observer.observe(card);
-    });
+            drops[i]++;
+        }
+    }
+    
+    setInterval(draw, 33);
 }
 
-function handleTouchEffects() {
-    const cards = document.querySelectorAll('.link-card'); // Corrected selector
-    cards.forEach(card => {
-        card.addEventListener('touchstart', () => card.classList.add('hover-effect'));
-        card.addEventListener('touchend', () => {
-            setTimeout(() => card.classList.remove('hover-effect'), 500);
-        });
-    });
+// Handle window resize
+function handleResize() {
+    // Adjust ASCII art size if needed on very small screens
+    const asciiArt = document.querySelector('.ascii-art pre');
+    if (asciiArt && window.innerWidth < 400) {
+        asciiArt.style.fontSize = '0.2rem';
+    }
 }
 
 // Initialize everything
-document.addEventListener('DOMContentLoaded', () => { // Use DOMContentLoaded
-    initThreeJS();
+document.addEventListener('DOMContentLoaded', () => {
+    // Run boot sequence
+    bootSequence();
+    
+    // Add effects
+    addGlitchEffect();
+    addTypingFeedback();
+    randomizeCursor();
+    
+    // Add matrix rain background
+    matrixRain();
+    
+    // Handle resize
     window.addEventListener('resize', handleResize);
-    handleDarkMode();
-    handleScrollReveal();
-    handleTouchEffects();
+    
+    // Easter egg: Press Ctrl+Shift+M for enhanced matrix effect
+    let keysPressed = {};
+    document.addEventListener('keydown', (e) => {
+        keysPressed[e.key] = true;
+        
+        if (keysPressed['Control'] && keysPressed['Shift'] && keysPressed['M']) {
+            const canvas = document.querySelector('canvas');
+            if (canvas) {
+                canvas.style.opacity = canvas.style.opacity === '0.08' ? '0.2' : '0.08';
+            }
+        }
+    });
+    
+    document.addEventListener('keyup', (e) => {
+        delete keysPressed[e.key];
+    });
 });
