@@ -149,6 +149,76 @@ body {
     min-height: 500px;
 }
 
+/* Ko-fi Section */
+.kofi-section {
+    margin-bottom: 2rem;
+}
+
+.kofi-banner {
+    margin-top: 1rem;
+    margin-left: 2rem;
+}
+
+.kofi-link {
+    display: block;
+    background: linear-gradient(135deg, var(--neon-pink), var(--purple));
+    border: 2px solid var(--neon-pink);
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 
+        0 0 20px rgba(255, 0, 255, 0.3),
+        inset 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.kofi-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 
+        0 0 30px rgba(255, 0, 255, 0.5),
+        0 0 50px rgba(0, 240, 255, 0.3),
+        inset 0 0 30px rgba(255, 255, 255, 0.15);
+    border-color: var(--neon-blue);
+}
+
+.kofi-content {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.kofi-icon {
+    font-size: 3rem;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+}
+
+.kofi-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.kofi-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.kofi-desc {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Info Grid - Side by side layout */
+.info-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    align-items: start;
+}
+
 /* ASCII Art */
 .ascii-art {
     overflow-x: auto;
@@ -156,8 +226,8 @@ body {
 
 .ascii-art pre {
     color: var(--neon-blue);
-    font-size: 0.5rem;
-    line-height: 1.2;
+    font-size: 0.45rem;
+    line-height: 1.1;
     text-shadow: 0 0 10px rgba(0, 240, 255, 0.8);
     animation: glow 2s ease-in-out infinite alternate;
 }
@@ -343,8 +413,31 @@ body {
         padding: 1rem;
     }
 
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
     .ascii-art pre {
         font-size: 0.35rem;
+    }
+
+    .kofi-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .kofi-icon {
+        font-size: 2.5rem;
+    }
+
+    .kofi-title {
+        font-size: 1.1rem;
+    }
+
+    .kofi-desc {
+        font-size: 0.9rem;
     }
 
     .file-item {
@@ -373,6 +466,22 @@ body {
         font-size: 0.25rem;
     }
 
+    .kofi-banner {
+        margin-left: 0;
+    }
+
+    .kofi-link {
+        padding: 1rem;
+    }
+
+    .kofi-title {
+        font-size: 1rem;
+    }
+
+    .kofi-desc {
+        font-size: 0.85rem;
+    }
+
     .file-name {
         font-size: 0.875rem;
     }
@@ -382,194 +491,9 @@ body {
     }
 }
 
-/* Hero Row: ASCII art + latest content side by side */
-.hero-row {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 1.5rem;
-    align-items: start;
-    margin-bottom: 2rem;
-}
-
-.hero-row .ascii-art {
-    margin-bottom: 0;
-    flex-shrink: 0;
-}
-
-.hero-latest {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    min-width: 0;
-}
-
-.hero-latest-label {
-    font-size: 0.85rem;
-    color: var(--text-secondary);
-    margin-bottom: 0.25rem;
-    font-family: 'JetBrains Mono', monospace;
-}
-
-/* Latest Content Grid */
-.latest-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-top: 0;
-}
-
-.latest-card {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-.latest-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--neon-pink), var(--neon-blue), var(--neon-purple));
-    box-shadow: 0 0 10px var(--neon-pink);
-}
-
-.latest-card:hover {
-    border-color: var(--neon-pink);
-    box-shadow:
-        0 0 20px rgba(255, 0, 255, 0.3),
-        0 0 40px rgba(0, 240, 255, 0.1);
-    transform: translateY(-2px);
-}
-
-.latest-card-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.75rem 1rem;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.latest-label {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    font-family: 'JetBrains Mono', monospace;
-}
-
-.neon-pink-text {
-    color: var(--neon-pink);
-}
-
-.latest-badge {
-    font-size: 0.65rem;
-    padding: 0.2rem 0.5rem;
-    border-radius: 3px;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-}
-
-.yt-badge {
-    background: rgba(255, 0, 110, 0.15);
-    border: 1px solid rgba(255, 0, 110, 0.4);
-    color: #ff006e;
-    box-shadow: 0 0 8px rgba(255, 0, 110, 0.2);
-}
-
-.kofi-badge {
-    background: rgba(0, 240, 255, 0.1);
-    border: 1px solid rgba(0, 240, 255, 0.4);
-    color: var(--cyan);
-    box-shadow: 0 0 8px rgba(0, 240, 255, 0.2);
-}
-
-/* YouTube embed */
-.video-wrapper {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 */
-    height: 0;
-    overflow: hidden;
-    flex: 1;
-}
-
-.video-wrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+/* Box Drawing Enhancement */
+.neofetch-output pre {
     border: none;
-}
-
-/* Ko-fi embed */
-.kofi-product-frame {
-    display: block;
-    flex: 1;
-    overflow: hidden;
-    max-height: 320px;
-    text-decoration: none;
-}
-
-.kofi-embed-wrapper {
-    width: 100%;
-    height: 320px;
-    overflow: hidden;
-    pointer-events: none;
-}
-
-.kofi-embed-wrapper iframe {
-    width: 100%;
-    height: 712px;
-    border: none;
-    transform: scale(0.9);
-    transform-origin: top center;
-}
-
-.latest-link {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.65rem 1rem;
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    text-decoration: none;
-    border-top: 1px solid var(--border-color);
-    font-family: 'JetBrains Mono', monospace;
-    transition: all 0.3s ease;
-}
-
-.latest-link:hover {
-    color: var(--neon-pink);
-    background: rgba(255, 0, 255, 0.05);
-}
-
-.latest-link:hover .file-arrow {
-    transform: translateX(4px);
-    color: var(--neon-pink);
-}
-
-.kofi-link:hover {
-    color: var(--cyan);
-}
-
-.kofi-link:hover .file-arrow {
-    color: var(--cyan);
-}
-
-@media (max-width: 768px) {
-    .latest-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .hero-row {
-        grid-template-columns: 1fr;
-    }
 }
 
 /* Selection Style */
