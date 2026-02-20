@@ -378,6 +378,212 @@ body {
     color: var(--neon-pink);
 }
 
+/* Hero Row: ASCII art + latest content side by side */
+.hero-row {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.5rem;
+    align-items: start;
+    margin-bottom: 2rem;
+}
+
+.hero-row .ascii-art {
+    margin-bottom: 0;
+    flex-shrink: 0;
+}
+
+.hero-latest {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-width: 0;
+}
+
+.hero-latest-label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.25rem;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* Latest Content Grid */
+.latest-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 0;
+}
+
+.latest-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.latest-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--neon-pink), var(--neon-blue), var(--neon-purple));
+    box-shadow: 0 0 10px var(--neon-pink);
+}
+
+.latest-card:hover {
+    border-color: var(--neon-pink);
+    box-shadow:
+        0 0 20px rgba(255, 0, 255, 0.3),
+        0 0 40px rgba(0, 240, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.latest-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.latest-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.neon-pink-text {
+    color: var(--neon-pink);
+}
+
+.latest-badge {
+    font-size: 0.65rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.yt-badge {
+    background: rgba(255, 0, 110, 0.15);
+    border: 1px solid rgba(255, 0, 110, 0.4);
+    color: #ff006e;
+    box-shadow: 0 0 8px rgba(255, 0, 110, 0.2);
+}
+
+.kofi-badge {
+    background: rgba(0, 240, 255, 0.1);
+    border: 1px solid rgba(0, 240, 255, 0.4);
+    color: var(--cyan);
+    box-shadow: 0 0 8px rgba(0, 240, 255, 0.2);
+}
+
+/* YouTube embed */
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+    overflow: hidden;
+    flex: 1;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Ko-fi product preview */
+.kofi-product-link {
+    display: block;
+    flex: 1;
+    text-decoration: none;
+    overflow: hidden;
+}
+
+.kofi-product-preview {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: var(--bg-primary);
+}
+
+.kofi-product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.kofi-product-info {
+    padding: 1rem;
+    flex: 1;
+}
+
+.kofi-product-title {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.kofi-product-desc {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.latest-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.65rem 1rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    border-top: 1px solid var(--border-color);
+    font-family: 'JetBrains Mono', monospace;
+    transition: all 0.3s ease;
+}
+
+.latest-link:hover {
+    color: var(--neon-pink);
+    background: rgba(255, 0, 255, 0.05);
+}
+
+.latest-link:hover .file-arrow {
+    transform: translateX(4px);
+    color: var(--neon-pink);
+}
+
+.kofi-link:hover {
+    color: var(--cyan);
+}
+
+.kofi-link:hover .file-arrow {
+    color: var(--cyan);
+}
+
+@media (max-width: 768px) {
+    .latest-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-row {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* Cursor */
 .cursor-line {
     margin-top: 2rem;
